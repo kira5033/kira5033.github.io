@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Kira&#39;s Personal Pages</title>
+    <title>Posts on Kira&#39;s Blog</title>
     <link>https://kira5033.github.io/post/</link>
-    <description>Recent content in Posts on Kira&#39;s Personal Pages</description>
+    <description>Recent content in Posts on Kira&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 24 May 2019 11:49:40 +0800</lastBuildDate>
+    <language>zh-tw</language>
+    <lastBuildDate>Mon, 27 May 2019 11:49:40 +0800</lastBuildDate>
     
 	<atom:link href="https://kira5033.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello World</title>
-      <link>https://kira5033.github.io/2019/05/hello-world/</link>
-      <pubDate>Fri, 24 May 2019 11:49:40 +0800</pubDate>
+      <title>使用Github部署Hugo靜態網站</title>
+      <link>https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/</link>
+      <pubDate>Mon, 27 May 2019 11:49:40 +0800</pubDate>
       
-      <guid>https://kira5033.github.io/2019/05/hello-world/</guid>
-      <description>Hello World. This is my first post.
-Post By Kira.</description>
+      <guid>https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/</guid>
+      <description>&lt;h1 id=&#34;簡單架設自己的blog&#34;&gt;簡單架設自己的Blog&lt;/h1&gt;
+
+&lt;p&gt;由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS&lt;/p&gt;</description>
     </item>
     
   </channel>
