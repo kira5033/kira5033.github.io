@@ -8,26 +8,30 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
 <meta name="keywords" content="">
-<meta name="description" content="簡單架設自己的Blog
+<meta name="description" content="
 
-由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS">
+目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
 
 
-<meta property="og:description" content="簡單架設自己的Blog
+<meta property="og:description" content="
 
-由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS">
+目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Github部署Hugo靜態網站">
 <meta name="twitter:title" content="使用Github部署Hugo靜態網站">
 <meta property="og:url" content="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
 <meta property="twitter:url" content="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="簡單架設自己的Blog
+<meta property="og:description" content="
 
-由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS">
-<meta name="twitter:description" content="簡單架設自己的Blog
+目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta name="twitter:description" content="
 
-由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS">
+目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
 <meta property="og:locale" content="zh-tw">
 
   
@@ -239,9 +243,10 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="簡單架設自己的blog">簡單架設自己的Blog</h1>
+              <p><img src="https://kira5033.github.io/images/20190528_hugo.png" alt="Hugo" /></p>
 
-<p>由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS</p>
+<p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p>
 
 <h3 id="在github建立一個repo">在Github建立一個repo</h3>
 
@@ -270,7 +275,8 @@
 <ul>
 <li>config.toml 網站的生成設定就看這支<br /></li>
 <li>content     產生草稿文章地方<br /></li>
-<li>themes      引入模板的地方<br />
+<li>static      存放文章圖片的位置</li>
+<li>themes      引入主題的地方<br />
 <br /></li>
 </ul>
 
@@ -282,7 +288,7 @@
 <pre><code>git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
 </code></pre>
 
-<p>下載下來的模板裡頭都會有theme.toml，請把裡面內容直接貼進剛剛提到的config.toml，並自行修改內容</p>
+<p>下載下來的主題裡頭都會有theme.toml，請把裡面內容直接貼進剛剛提到的config.toml，並自行修改內容</p>
 
 <pre><code>baseURL = &quot;https://youraccount.github.io/&quot;
 languageCode = &quot;zh-tw&quot;
@@ -317,14 +323,17 @@ This is my first post.
 <pre><code>hugo server --buildDrafts
 </code></pre>
 
-<p>啟動後，Hugo會預設使用1313Port架起測試站，請連到localhost:1313檢查自己的網站有沒有問題．</p>
+<p>啟動後，Hugo會預設使用1313Port架起測試站，請連到localhost:1313檢查自己的網站有沒有問題</p>
 
 <h3 id="文章轉正">文章轉正</h3>
 
 <pre><code>hugo
 </code></pre>
 
-<p>這時會產生public資料夾，這是Hugo生成所有網頁檔案的位置，接著你就可以將public的所有檔案push到Github就大功告成囉～</p>
+<p>這時會產生public資料夾，這是Hugo生成所有網頁檔案的位置<br />
+接著你就可以將public的所有檔案push到Github就大功告成囉～</p>
+
+<p><img src="https://kira5033.github.io/images/20190528_mywebsite.png" alt="Hugo" /></p>
               
             </div>
           </div>
@@ -584,9 +593,10 @@ This is my first post.
                   May 5, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h1 id="簡單架設自己的blog">簡單架設自己的Blog</h1>
+              <div class="media-content hide-xs font-merryweather"><p><img src="https://kira5033.github.io/images/20190528_hugo.png" alt="Hugo" /></p>
 
-<p>由於作者使用Hugo架站覺得簡單又快速，因此想要紀錄此法，架設環境是MacOS</p></div>
+<p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -666,7 +676,7 @@ $(document).ready(function() {
             return;
           }
           var d = document, s = d.createElement('script');
-          var disqus_shortname = 'linkira';
+          var disqus_shortname = 'kira5033';
           s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
           s.setAttribute('data-timestamp', +new Date());
