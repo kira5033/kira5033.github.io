@@ -280,10 +280,10 @@
 <br /></li>
 </ul>
 
-<p>接著替自己的Blog找尋喜歡得themes吧<br />
-    <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
+<p>再來就是選你喜歡的主題<br />
+<a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
 
-<h3 id="下載自己喜歡的themes">下載自己喜歡的themes</h3>
+<h3 id="下載自己喜歡的主題">下載自己喜歡的主題</h3>
 
 <pre><code>git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
 </code></pre>
@@ -301,7 +301,7 @@ title = &quot;Kira's Blog&quot;
 <pre><code>hugo new post/hello-world.md
 </code></pre>
 
-<p>檔案生成後，可以修自行修改檔頭資料</p>
+<p>檔案生成後，可以修自行修改檔頭資料，當draft為true時，代表該篇文章為草稿不會被 Hugo 轉換為網頁，因此可在指令後加入 &ndash;buildDrafts 來轉換草稿文件，而文章內容以<a href="https://markdown.tw">Markdown文件</a>為主</p>
 
 <pre><code>---
 title: &quot;Hellow World&quot;
@@ -313,10 +313,8 @@ tags:
 draft: true
 ---  
 Hello World  
-This is my first post.  
+This is my first post.   
 </code></pre>
-
-<p>draft為true時，代表該篇文章為草稿不會被 Hugo 轉換為網頁。因此可在指令後加入 &ndash;buildDrafts 來轉換草稿文件。</p>
 
 <h3 id="執行指令">執行指令</h3>
 
@@ -325,7 +323,7 @@ This is my first post.
 
 <p>啟動後，Hugo會預設使用1313Port架起測試站，請連到localhost:1313檢查自己的網站有沒有問題</p>
 
-<h3 id="文章轉正">文章轉正</h3>
+<h3 id="將文章轉成正式網頁">將文章轉成正式網頁</h3>
 
 <pre><code>hugo
 </code></pre>
