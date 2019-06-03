@@ -6,10 +6,19 @@
     <description>Recent content on Kira&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 27 May 2019 11:49:40 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 16:26:25 +0800</lastBuildDate>
     
 	<atom:link href="https://kira5033.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CentOS 7.6 以太坊Ethereum環境建置</title>
+      <link>https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/</link>
+      <pubDate>Mon, 03 Jun 2019 16:26:25 +0800</pubDate>
+      
+      <guid>https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/</guid>
+      <description>&lt;p&gt;個人紀錄在CentOS 7.6的環境下建置以太坊&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>使用Github部署Hugo靜態網站</title>

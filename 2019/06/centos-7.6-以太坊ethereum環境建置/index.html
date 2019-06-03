@@ -8,37 +8,25 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
 <meta name="keywords" content="">
-<meta name="description" content="
-
-目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta name="description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
 
 
-<meta property="og:description" content="
-
-目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta property="og:description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Github部署Hugo靜態網站">
-<meta name="twitter:title" content="使用Github部署Hugo靜態網站">
-<meta property="og:url" content="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
-<meta property="twitter:url" content="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+<meta property="og:title" content="CentOS 7.6 以太坊Ethereum環境建置">
+<meta name="twitter:title" content="CentOS 7.6 以太坊Ethereum環境建置">
+<meta property="og:url" content="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+<meta property="twitter:url" content="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="
-
-目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
-<meta name="twitter:description" content="
-
-目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta property="og:description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
+<meta name="twitter:description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2019-05-27T11:49:40">
+    <meta property="article:published_time" content="2019-06-03T16:26:25">
   
   
-    <meta property="article:modified_time" content="2019-05-27T11:49:40">
+    <meta property="article:modified_time" content="2019-06-03T16:26:25">
   
   
   
@@ -48,7 +36,9 @@
   
   
     
-      <meta property="article:tag" content="Hugo">
+      <meta property="article:tag" content="centos">
+    
+      <meta property="article:tag" content="ethereum">
     
   
 
@@ -69,14 +59,14 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>使用Github部署Hugo靜態網站</title>
+    <title>CentOS 7.6 以太坊Ethereum環境建置</title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+    <link rel="canonical" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -229,15 +219,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      使用Github部署Hugo靜態網站
+      CentOS 7.6 以太坊Ethereum環境建置
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-05-27T11:49:40&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-06-03T16:26:25&#43;08:00">
         
-  五月 27, 2019
+  六月 3, 2019
 
       </time>
     
@@ -256,95 +246,124 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><img src="https://kira5033.github.io/images/20190528_hugo.png" alt="Hugo" /></p>
+              <p>個人紀錄在CentOS 7.6的環境下建置以太坊</p>
 
-<p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p>
+<h3 id="首先更新套件">首先更新套件</h3>
 
-<h3 id="在github建立一個repo">在Github建立一個repo</h3>
+<p>剛設置好CentOS後，先更新git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake</p>
 
-<pre><code>youraccount.github.io
+<pre><code>yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y
 </code></pre>
 
-<h3 id="安裝homebrew-已有安裝的人可跳過">安裝Homebrew，已有安裝的人可跳過</h3>
+<h3 id="移動到usr下">移動到usr下</h3>
 
-<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+<pre><code> cd /usr
 </code></pre>
 
-<h3 id="安裝hugo">安裝Hugo</h3>
+<h3 id="下載最新的golang">下載最新的golang</h3>
 
-<pre><code>brew install hugo
+<pre><code>wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
 </code></pre>
 
-<p>沒錯，Hugo就這樣安裝結束了，接下來是本機檔案的建立</p>
+<h3 id="解壓縮golang">解壓縮golang</h3>
 
-<h3 id="產生一個資料夾ssg-site-可自行更換名稱">產生一個資料夾ssg-site，可自行更換名稱</h3>
-
-<pre><code>hugo new site ssg-site  
+<pre><code>tar zxvf go1.11.5.linux-amd64.tar.gz
 </code></pre>
 
-<p>資料夾中會產生一些檔案，簡單說明目前較重要的</p>
+<h3 id="搬移go到local下">搬移go到local下</h3>
 
-<ul>
-<li>config.toml 網站的生成設定就看這支<br /></li>
-<li>content     產生草稿文章地方<br /></li>
-<li>static      存放文章圖片的位置</li>
-<li>themes      引入主題的地方<br />
-<br /></li>
-</ul>
-
-<p>再來就是選你喜歡的主題<br />
-<a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
-
-<h3 id="下載自己喜歡的主題">下載自己喜歡的主題</h3>
-
-<pre><code>git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
+<pre><code>mv go /usr/local
 </code></pre>
 
-<p>下載下來的主題裡頭都會有theme.toml，請把裡面內容直接貼進剛剛提到的config.toml，並自行修改內容</p>
+<h3 id="配置goroot和path">配置GOROOT和PATH</h3>
 
-<pre><code>baseURL = &quot;https://youraccount.github.io/&quot;
-languageCode = &quot;zh-tw&quot;
-defaultContentLanguage = &quot;zh-tw&quot;
-title = &quot;Kira's Blog&quot;
+<pre><code>echo&quot;export GOROOT=/usr/local/go&quot; &gt;&gt; /etc/profile
+echo&quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; /etc/profile
+source/etc/profile
 </code></pre>
 
-<h3 id="開始新增文章">開始新增文章</h3>
+<h3 id="下載go-ethereum">下載go-ethereum</h3>
 
-<pre><code>hugo new post/hello-world.md
+<pre><code>clone go-ethereum
+git clone https://github.com/ethereum/go-ethereum.git
+cd go-ethereum
+make all
 </code></pre>
 
-<p>檔案生成後，可以修自行修改檔頭資料，當draft為true時，代表該篇文章為草稿不會被 Hugo 轉換為網頁，因此可在指令後加入 &ndash;buildDrafts 來轉換草稿文件，而文章內容以<a href="https://markdown.tw">Markdown文件</a>為主</p>
+<p>compile: version &ldquo;goX.X&rdquo; does not match go tool version &ldquo;goX.X.X&rdquo;<br />
+若過程中跳出這種錯誤，個人解法是將步驟退回安裝golang，下載go tool version的golang即可</p>
 
-<pre><code>---
-title: &quot;Hellow World&quot;
-date: 2019-05-27T11:49:40+08:00
-categories:
- - &quot;test&quot;
-tags:
- - &quot;test&quot;
-draft: true
----  
-Hello World  
-This is my first post.   
+<h3 id="完成後在path中入geth路徑">完成後在path中入geth路徑</h3>
+
+<pre><code>echo &quot;export PATH=$PATH:/root/go-ethereum/build/bin&quot; &gt;&gt; /etc/profile  
+source /etc/profile  
 </code></pre>
 
-<h3 id="執行指令">執行指令</h3>
+<h3 id="安裝cmake-智能合約編譯solc需cmake編譯">安裝cmake：智能合約編譯solc需cmake編譯</h3>
 
-<pre><code>hugo server --buildDrafts
+<p><a href="https://cmake.org/download/">下載cmake最新版本</a></p>
+
+<pre><code>cd &amp;&amp; wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
 </code></pre>
 
-<p>啟動後，Hugo會預設使用1313Port架起測試站，請連到localhost:1313檢查自己的網站有沒有問題</p>
+<h3 id="解壓並編譯並安裝">解壓並編譯並安裝</h3>
 
-<h3 id="將文章轉成正式網頁">將文章轉成正式網頁</h3>
-
-<pre><code>hugo
+<pre><code>tar -xzvf cmake-3.14.5.tar.gz
+cd cmaker-3.14.5
+./bootstrap &amp;&amp; make &amp;&amp; make install
 </code></pre>
 
-<p>這時會產生public資料夾，這是Hugo生成所有網頁檔案的位置<br />
-接著你就可以將public的所有檔案push到Github就大功告成囉～</p>
+<h3 id="啓動網路時間同步">啓動網路時間同步</h3>
 
-<p><img src="https://kira5033.github.io/images/20190528_mywebsite.png" alt="Hugo" /></p>
+<pre><code>systemctl enable ntpd
+systemctl start ntpd
+</code></pre>
+
+<h3 id="另外geth會用到8078和30303端口-放開防火牆端口-8078與30303">另外geth會用到8078和30303端口，放開防火牆端口 8078與30303</h3>
+
+<pre><code>firewall-cmd --zone=public --add-port=8078/tcp --permanent
+firewall-cmd --zone=public --add-port=30303/tcp --permanent
+firewall-cmd --reload
+</code></pre>
+
+<p>&ndash;permanent為永久設定，否則防火牆重新啟動時將會失效</p>
+
+<h3 id="建立創世區塊文件">建立創世區塊文件</h3>
+
+<p>在go-ethereum/build/bin目錄下建立創世區塊文件init.json檔，內容如下</p>
+
+<pre><code>{
+  &quot;nonce&quot;: &quot;0x0000000000000042&quot;,
+  &quot;timestamp&quot;: &quot;0x00&quot;,
+  &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+  &quot;extraData&quot;: &quot;0x00&quot;,
+  &quot;gasLimit&quot;: &quot;0x80000000&quot;,
+  &quot;difficulty&quot;: &quot;0x400&quot;,
+  &quot;mixhash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+  &quot;coinbase&quot;: &quot;0x2D356ee3F5b8718d8690AFCD31Fe2CB5E602677e&quot;,
+  &quot;alloc&quot;: {},
+  &quot;config&quot;: {
+    &quot;chainId&quot;: 15,
+    &quot;homesteadBlock&quot;: 0,
+    &quot;eip155Block&quot;: 0,
+    &quot;eip158Block&quot;: 0
+  }
+}
+</code></pre>
+
+<h3 id="創世區塊初始化">創世區塊初始化</h3>
+
+<p>請在ethereum/build/bin下操作</p>
+
+<pre><code>geth  --datadir &quot;/data/eth/chain&quot; init init.json
+</code></pre>
+
+<p>/data/eth/chain，建立資料位置可自行更換，建立前請先確保磁碟容量足夠，以及初始化文件名稱要和剛剛建立的必須一致</p>
+
+<h3 id="以太坊啟動">以太坊啟動</h3>
+
+<pre><code>geth --rpc --rpccorsdomain &quot;*&quot; --datadir &quot;/data/eth/chain/&quot; --port &quot;30303&quot; --rpcapi &quot;db,eth,net,web3&quot; --networkid 100000 console  
+</code></pre>
               
             </div>
           </div>
@@ -356,7 +375,9 @@ This is my first post.
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/hugo/">Hugo</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/centos/">centos</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/ethereum/">ethereum</a>
 
                   </div>
                 
@@ -369,7 +390,7 @@ This is my first post.
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -377,7 +398,7 @@ This is my first post.
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/" data-tooltip="使用Github部署Hugo靜態網站">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -395,19 +416,19 @@ This is my first post.
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -455,7 +476,7 @@ This is my first post.
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -463,7 +484,7 @@ This is my first post.
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/" data-tooltip="使用Github部署Hugo靜態網站">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -481,19 +502,19 @@ This is my first post.
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -523,19 +544,19 @@ This is my first post.
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F05%2F%25E4%25BD%25BF%25E7%2594%25A8github%25E9%2583%25A8%25E7%25BD%25B2hugo%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F05%2F%25E4%25BD%25BF%25E7%2594%25A8github%25E9%2583%25A8%25E7%25BD%25B2hugo%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F05%2F%25E4%25BD%25BF%25E7%2594%25A8github%25E9%2583%25A8%25E7%25BD%25B2hugo%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -692,9 +713,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2019\/05\/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE\/';
           
-            this.page.identifier = '\/2019\/05\/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99\/'
+            this.page.identifier = '\/2019\/06\/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE\/'
           
         };
         (function() {
