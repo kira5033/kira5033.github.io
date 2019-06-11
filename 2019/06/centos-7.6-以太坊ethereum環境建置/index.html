@@ -51,6 +51,9 @@
 
 
 
+  <meta property="og:image" content="https://kira5033.github.io/images/20190611_ethereumpic2.jpg">
+  <meta property="twitter:image" content="https://kira5033.github.io/images/20190611_ethereumpic2.jpg">
+
 
 
 
@@ -255,49 +258,37 @@ if (!doNotTrack) {
 <pre><code>yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y
 </code></pre>
 
-<h3 id="移動到usr下">移動到usr下</h3>
+<h3 id="安裝go-ethereum">安裝go-ethereum</h3>
 
-<pre><code> cd /usr
-</code></pre>
+<pre><code># 在這裡要先安裝Golang，待會需要編譯用
+wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
 
-<h3 id="下載最新的golang">下載最新的golang</h3>
+# 解壓縮golang  
+tar zxvf go1.11.5.linux-amd64.tar.gz
 
-<pre><code>wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
-</code></pre>
+# 搬移go到local下  
+mv go /usr/local
 
-<h3 id="解壓縮golang">解壓縮golang</h3>
-
-<pre><code>tar zxvf go1.11.5.linux-amd64.tar.gz
-</code></pre>
-
-<h3 id="搬移go到local下">搬移go到local下</h3>
-
-<pre><code>mv go /usr/local
-</code></pre>
-
-<h3 id="配置goroot和path">配置GOROOT和PATH</h3>
-
-<pre><code>echo&quot;export GOROOT=/usr/local/go&quot; &gt;&gt; /etc/profile
+# 配置GOROOT和PATH   
+echo&quot;export GOROOT=/usr/local/go&quot; &gt;&gt; /etc/profile
 echo&quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; /etc/profile
 source/etc/profile
-</code></pre>
 
-<h3 id="下載go-ethereum">下載go-ethereum</h3>
-
-<pre><code>clone go-ethereum
+# 下載go-ethereum  
+clone go-ethereum
 git clone https://github.com/ethereum/go-ethereum.git
 cd go-ethereum
 make all
-</code></pre>
 
-<p>compile: version &ldquo;goX.X&rdquo; does not match go tool version &ldquo;goX.X.X&rdquo;<br />
-若過程中跳出這種錯誤，個人解法是將步驟退回安裝golang，下載go tool version的golang即可</p>
-
-<h3 id="完成後在path中入geth路徑">完成後在path中入geth路徑</h3>
-
-<pre><code>echo &quot;export PATH=$PATH:/root/go-ethereum/build/bin&quot; &gt;&gt; /etc/profile  
+# 完成後在path中入geth路徑  
+echo &quot;export PATH=$PATH:/root/go-ethereum/build/bin&quot; &gt;&gt; /etc/profile  
 source /etc/profile  
 </code></pre>
+
+<blockquote>
+<p>compile: version &ldquo;goX.X&rdquo; does not match go tool version &ldquo;goX.X.X&rdquo;<br />
+若過程中跳出這種錯誤，個人解法是將步驟退回安裝golang，下載go tool version的golang即可</p>
+</blockquote>
 
 <h3 id="安裝cmake-智能合約編譯solc需cmake編譯">安裝cmake：智能合約編譯solc需cmake編譯</h3>
 
@@ -321,15 +312,16 @@ systemctl start ntpd
 
 <h3 id="開放防火牆port">開放防火牆port</h3>
 
-<p>Ethereum 節點 - 30303<br />
-RPCapi - 8545</p>
-
 <pre><code>firewall-cmd --zone=public --add-port=8545/tcp --permanent
 firewall-cmd --zone=public --add-port=30303/tcp --permanent
 firewall-cmd --reload
 </code></pre>
 
-<p>&ndash;permanent為永久設定，否則防火牆重新啟動時將會失效</p>
+<blockquote>
+<p>Ethereum 節點 - 30303<br />
+RPCapi - 8545<br />
+&ndash;permanent為永久設定，否則防火牆重新啟動時將會失效</p>
+</blockquote>
 
 <h3 id="建立創世區塊文件">建立創世區塊文件</h3>
 
@@ -363,7 +355,9 @@ firewall-cmd --reload
 geth --datadir &quot;/data/eth/chain&quot; init init.json
 </code></pre>
 
+<blockquote>
 <p>/data/eth/chain，建立資料位置可自行更換，建立前請先確保磁碟容量足夠，以及初始化文件名稱要和剛剛建立的必須一致</p>
+</blockquote>
 
 <h3 id="以太坊啟動">以太坊啟動</h3>
 
@@ -373,6 +367,8 @@ geth --datadir &quot;/data/eth/chain&quot; init init.json
 <p>如果有看到Welcome to the Geth JavaScript console!的字樣，私有鏈就算架設完成囉～</p>
 
 <h3 id="開啟第二個console畫面">開啟第二個Console畫面</h3>
+
+<p>基本上啟動以太坊一定是Server端啟用，所以如果在其他電腦上也想進入Console畫面，就要Remote進去</p>
 
 <pre><code># 本機連接節點
 geth attach http://localhost:8545
@@ -658,9 +654,7 @@ geth attach http://remote_ip:8545
                   May 5, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p><img src="https://kira5033.github.io/images/20190528_hugo.png" alt="Hugo" /></p>
-
-<p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
+              <div class="media-content hide-xs font-merryweather"><p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
 架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p></div>
             </div>
             <div style="clear:both;"></div>
