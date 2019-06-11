@@ -255,7 +255,7 @@ if (!doNotTrack) {
 
 <h3 id="宣告位址">宣告位址</h3>
 
-<pre><code>$myAddress = new \EthereumPHP\Types\Address(your_address);
+<pre><code>$myAddress = new \EthereumPHP\Types\Address('your_address');
 $toAddress = new \EthereumPHP\Types\Address('other_address');
 </code></pre>
 
@@ -272,13 +272,11 @@ echo $account-&gt;toString() , PHP_EOL;
 
 <h3 id="交易流程">交易流程</h3>
 
-<pre><code>    echo '解鎖帳號中...'.'&lt;br&gt;';
-    //交易 - step 1 解鎖支出位址帳號
+<pre><code>    # 解鎖支出位址帳號
     if($client-&gt;personal()-&gt;unlockAccount($myAddress, '1234', 30)){
-        echo '帳號解鎖成功'.'&lt;br&gt;';
         $tx = '';
 
-        //定義交易資訊
+        # 定義交易資訊
         $transaction = new \EthereumPHP\Types\Transaction(
             $myAddress,
             $toAddress,
@@ -288,22 +286,22 @@ echo $account-&gt;toString() , PHP_EOL;
             (new \EthereumPHP\Types\Ether(1))-&gt;toWei()-&gt;amount()
         );
 
-        echo '發送交易'.'&lt;br&gt;';
+        # 發送交易
 
         $checkTransaction = $client-&gt;eth()-&gt;sendTransaction($transaction);
 
         if($checkTransaction){
             $txHash = $checkTransaction-&gt;toString();
 
-            echo '回傳成功,Hash='.$txHash.'&lt;br&gt;';
+            # 回傳成功
 
             $getTransaction = $client-&gt;eth()-&gt;getTransactionByHash(new TransactionHash($txHash));
 
+            # 檢查交易有無成立
             if($getTransaction){
-                //Success
-                echo '交易成功,金額='.$getTransaction-&gt;value().'&lt;br&gt;';
+                # Success
             }else{
-                //Failed
+                # Failed
             }
         }
     }
@@ -311,14 +309,18 @@ echo $account-&gt;toString() , PHP_EOL;
 
 <h3 id="檢查交易有無成功">檢查交易有無成功</h3>
 
-<pre><code>    $getTransactionReceipt = $client-&gt;eth()-&gt;getTransactionReceipt(new TransactionHash($txHash));
-
-    if($getTransactionReceipt){
-        //Success
-    }else{
-        //Failed
-    }
+<pre><code>$getTransactionReceipt = $client-&gt;eth()-&gt;getTransactionReceipt(new TransactionHash($txHash));
+if($getTransactionReceipt){
+	# Success
+}else{
+	# Failed
+}
 </code></pre>
+
+<blockquote>
+<p>交易成立 ≠ 交易成功，千萬不能成立後直接完成<br />
+由於區塊鏈是屬於工作量證明，需等別人做完這件事才算完成，個人解釋為搓合成功</p>
+</blockquote>
               
             </div>
           </div>
