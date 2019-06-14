@@ -8,19 +8,39 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
 <meta name="keywords" content="">
-<meta name="description" content="工具紀錄及雜記">
+<meta name="description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
 
 
-<meta property="og:description" content="工具紀錄及雜記">
-<meta property="og:type" content="website">
-<meta property="og:title" content="技術分享">
-<meta name="twitter:title" content="技術分享">
-<meta property="og:url" content="https://kira5033.github.io/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/">
-<meta property="twitter:url" content="https://kira5033.github.io/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/">
+<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP簡易串接Line Notify">
+<meta name="twitter:title" content="PHP簡易串接Line Notify">
+<meta property="og:url" content="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+<meta property="twitter:url" content="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="工具紀錄及雜記">
-<meta name="twitter:description" content="工具紀錄及雜記">
+<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta name="twitter:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
 <meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2019-06-14T18:51:26">
+  
+  
+    <meta property="article:modified_time" content="2019-06-14T18:51:26">
+  
+  
+  
+    
+      <meta property="article:section" content="技術分享">
+    
+  
+  
+    
+      <meta property="article:tag" content="php">
+    
+      <meta property="article:tag" content="line">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -31,6 +51,9 @@
 
 
 
+  <meta property="og:image" content="https://kira5033.github.io/images/20190614_notify_img.png">
+  <meta property="twitter:image" content="https://kira5033.github.io/images/20190614_notify_img.png">
+
 
 
 
@@ -39,16 +62,14 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>技術分享</title>
+    <title>PHP簡易串接Line Notify</title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://kira5033.github.io/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/">
+    <link rel="canonical" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -81,7 +102,7 @@ if (!doNotTrack) {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://kira5033.github.io/">Kira&#39;s Blog</a>
@@ -101,7 +122,7 @@ if (!doNotTrack) {
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -190,35 +211,21 @@ if (!doNotTrack) {
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
-    
+    <h1 class="post-title" itemprop="headline">
+      PHP簡易串接Line Notify
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
-          PHP簡易串接Line Notify
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2019-06-14T18:51:26&#43;08:00">
@@ -238,204 +245,153 @@ if (!doNotTrack) {
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果</p>
+
+<blockquote>
+<p>操作前提記得先將LINE Notify加入你的好友</p>
+</blockquote>
+
+<h3 id="step-1">Step 1</h3>
+
+<p>請先登入<a href="https://notify-bot.line.me/zh_TW/">LINE Notify</a></p>
+
+<h3 id="step-2">Step 2</h3>
+
+<p>使用發行權杖取得Token並記下來，它只會顯示一次<br />
+<img src="https://kira5033.github.io/images/20190614_get_token.png" alt="Token" /></p>
+
+<h3 id="step-3">Step 3</h3>
+
+<p>這時我們有了Token就可以發送訊息，以下我以php做簡易示範</p>
+
+<pre><code>&lt;?php
+$headers = array(
+    'Content-Type: multipart/form-data',
+    'Authorization: Bearer 你的Token'
+);
+$message = array(
+    'message' =&gt; 'Hello,Kira~'
+);
+$ch = curl_init();
+curl_setopt($ch , CURLOPT_URL , &quot;https://notify-api.line.me/api/notify&quot;);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
+$result = curl_exec($ch);
+curl_close($ch);
+?&gt;
+</code></pre>
+
+<p>回到我們的LINE就會看到剛發出的訊息</p>
+
+<p><img src="https://kira5033.github.io/images/20190614_get_line.jpg" alt="message" /></p>
+
+<blockquote>
+<p>請注意，Bearer後面是有空格的</p>
+</blockquote>
+
+<p>LINE Notify還可以傳送圖片及基本貼圖，可自行詳閱<a href="https://notify-bot.line.me/doc/en/">API文件</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">php</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/line/">line</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/" data-tooltip="在PHP環境以JSON-RPC呼叫區塊鏈節點">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
-        <p>使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果</p>
-      
-      <p>
-        <a href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/" class="postShorten-excerpt_link link">繼續閱讀</a>
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-      </p>
-    </div>
-  </div>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
   
-    <a href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://kira5033.github.io/images/20190614_notify_img.png"/>
-      </div>
-    </a>
-  
-</article>
+</div>
 
             
               
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
-          在PHP環境以JSON-RPC呼叫區塊鏈節點
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-06-11T18:37:41&#43;08:00">
-        
-  六月 11, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>分類</span>
-    
-      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e5%88%86%e4%ba%ab">技術分享</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通</p>
-      
-      <p>
-        <a href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/" class="postShorten-excerpt_link link">繼續閱讀</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
               
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
-          CentOS 7.6 以太坊Ethereum環境建置
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-06-03T16:26:25&#43;08:00">
-        
-  六月 3, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>分類</span>
-    
-      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e5%88%86%e4%ba%ab">技術分享</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>個人紀錄在CentOS 7.6的環境下建置以太坊</p>
-      
-      <p>
-        <a href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" class="postShorten-excerpt_link link">繼續閱讀</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://kira5033.github.io/images/20190611_ethereumpic2.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
             
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
-          使用Github部署Hugo靜態網站
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-05-27T11:49:40&#43;08:00">
-        
-  五月 27, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>分類</span>
-    
-      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e5%88%86%e4%ba%ab">技術分享</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p>
-      
-      <p>
-        <a href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/" class="postShorten-excerpt_link link">繼續閱讀</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://kira5033.github.io/images/20190528_hugo1.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-            
-
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2019 Lin Kira. All Rights Reserved
@@ -443,6 +399,102 @@ if (!doNotTrack) {
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/" data-tooltip="在PHP環境以JSON-RPC呼叫區塊鏈節點">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -619,6 +671,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/';
+          
+            this.page.identifier = '\/2019\/06\/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kira5033';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 

@@ -8,29 +8,25 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
 <meta name="keywords" content="">
-<meta name="description" content="目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta name="description" content="簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通">
 
 
-<meta property="og:description" content="目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta property="og:description" content="簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Github部署Hugo靜態網站">
-<meta name="twitter:title" content="使用Github部署Hugo靜態網站">
-<meta property="og:url" content="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
-<meta property="twitter:url" content="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+<meta property="og:title" content="在PHP環境以JSON-RPC呼叫區塊鏈節點">
+<meta name="twitter:title" content="在PHP環境以JSON-RPC呼叫區塊鏈節點">
+<meta property="og:url" content="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
+<meta property="twitter:url" content="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
-<meta name="twitter:description" content="目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。">
+<meta property="og:description" content="簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通">
+<meta name="twitter:description" content="簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2019-05-27T11:49:40">
+    <meta property="article:published_time" content="2019-06-11T18:37:41">
   
   
-    <meta property="article:modified_time" content="2019-05-27T11:49:40">
+    <meta property="article:modified_time" content="2019-06-11T18:37:41">
   
   
   
@@ -40,7 +36,9 @@
   
   
     
-      <meta property="article:tag" content="Hugo">
+      <meta property="article:tag" content="php">
+    
+      <meta property="article:tag" content="ethereum">
     
   
 
@@ -53,9 +51,6 @@
 
 
 
-  <meta property="og:image" content="https://kira5033.github.io/images/20190528_hugo1.png">
-  <meta property="twitter:image" content="https://kira5033.github.io/images/20190528_hugo1.png">
-
 
 
 
@@ -64,14 +59,14 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>使用Github部署Hugo靜態網站</title>
+    <title>在PHP環境以JSON-RPC呼叫區塊鏈節點</title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+    <link rel="canonical" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -224,15 +219,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      使用Github部署Hugo靜態網站
+      在PHP環境以JSON-RPC呼叫區塊鏈節點
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-05-27T11:49:40&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-06-11T18:37:41&#43;08:00">
         
-  五月 27, 2019
+  六月 11, 2019
 
       </time>
     
@@ -251,93 +246,93 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p>
+              <p>簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通</p>
 
-<h3 id="在github建立一個repo">在Github建立一個repo</h3>
-
-<pre><code>youraccount.github.io
-</code></pre>
-
-<h3 id="安裝homebrew-已有安裝的人可跳過">安裝Homebrew，已有安裝的人可跳過</h3>
-
-<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre>
-
-<h3 id="安裝hugo">安裝Hugo</h3>
-
-<pre><code>brew install hugo
-</code></pre>
-
-<p>沒錯，Hugo就這樣安裝結束了，接下來是本機檔案的建立</p>
-
-<h3 id="產生一個資料夾ssg-site-可自行更換名稱">產生一個資料夾ssg-site，可自行更換名稱</h3>
-
-<pre><code>hugo new site ssg-site  
-</code></pre>
-
-<p>資料夾中會產生一些檔案，簡單說明目前較重要的</p>
+<p>前置作業</p>
 
 <ul>
-<li>config.toml 網站的生成設定就看這支<br /></li>
-<li>content     產生草稿文章地方<br /></li>
-<li>static      存放文章圖片的位置</li>
-<li>themes      引入主題的地方<br />
+<li><a href="https://github.com/kesar/ethereum-php">Ethereum-php</a><br /></li>
+<li>JSON-RPC套件<br />
 <br /></li>
 </ul>
 
-<p>再來就是選你喜歡的主題<br />
-<a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
+<blockquote>
+<p>composer require graze/guzzle-jsonrpc ext-bcmath phlib/base_convert</p>
+</blockquote>
 
-<h3 id="下載自己喜歡的主題">下載自己喜歡的主題</h3>
+<h3 id="連接至節點">連接至節點</h3>
 
-<pre><code>git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
+<pre><code>$client = new EthereumClient(ip:port);
 </code></pre>
 
-<p>下載下來的主題裡頭都會有theme.toml，請把裡面內容直接貼進剛剛提到的config.toml，並自行修改內容</p>
+<h3 id="宣告位址">宣告位址</h3>
 
-<pre><code>baseURL = &quot;https://youraccount.github.io/&quot;
-languageCode = &quot;zh-tw&quot;
-defaultContentLanguage = &quot;zh-tw&quot;
-title = &quot;Kira's Blog&quot;
+<pre><code>$myAddress = new \EthereumPHP\Types\Address('your_address');
+$toAddress = new \EthereumPHP\Types\Address('other_address');
 </code></pre>
 
-<h3 id="開始新增文章">開始新增文章</h3>
+<h3 id="建立新帳號">建立新帳號</h3>
 
-<pre><code>hugo new post/hello-world.md
+<pre><code>$account = $client-&gt;personal()-&gt;newAccount('1234');
+echo $account-&gt;toString() , PHP_EOL;
 </code></pre>
 
-<p>檔案生成後，可以修自行修改檔頭資料，當draft為true時，代表該篇文章為草稿不會被 Hugo 轉換為網頁，因此可在指令後加入 &ndash;buildDrafts 來轉換草稿文件，而文章內容以<a href="https://markdown.tw">Markdown文件</a>為主</p>
+<h3 id="顯示帳戶有多少以太幣">顯示帳戶有多少以太幣</h3>
 
-<pre><code>---
-title: &quot;Hellow World&quot;
-date: 2019-05-27T11:49:40+08:00
-categories:
- - &quot;test&quot;
-tags:
- - &quot;test&quot;
-draft: true
----  
-Hello World  
-This is my first post.   
+<pre><code>echo $client-&gt;eth()-&gt;getBalance($myAddress, new BlockNumber())-&gt;toEther() , PHP_EOL;
 </code></pre>
 
-<h3 id="執行指令">執行指令</h3>
+<h3 id="交易流程">交易流程</h3>
 
-<pre><code>hugo server --buildDrafts
+<pre><code>    # 解鎖支出位址帳號
+    if($client-&gt;personal()-&gt;unlockAccount($myAddress, '1234', 30)){
+        $tx = '';
+
+        # 定義交易資訊
+        $transaction = new \EthereumPHP\Types\Transaction(
+            $myAddress,
+            $toAddress,
+            null,
+            null,
+            null,
+            (new \EthereumPHP\Types\Ether(1))-&gt;toWei()-&gt;amount()
+        );
+
+        # 發送交易
+
+        $checkTransaction = $client-&gt;eth()-&gt;sendTransaction($transaction);
+
+        if($checkTransaction){
+            $txHash = $checkTransaction-&gt;toString();
+
+            # 回傳成功
+
+            $getTransaction = $client-&gt;eth()-&gt;getTransactionByHash(new TransactionHash($txHash));
+
+            # 檢查交易有無成立
+            if($getTransaction){
+                # Success
+            }else{
+                # Failed
+            }
+        }
+    }
 </code></pre>
 
-<p>啟動後，Hugo會預設使用1313Port架起測試站，請連到localhost:1313檢查自己的網站有沒有問題</p>
+<h3 id="檢查交易有無成功">檢查交易有無成功</h3>
 
-<h3 id="將文章轉成正式網頁">將文章轉成正式網頁</h3>
-
-<pre><code>hugo
+<pre><code>$getTransactionReceipt = $client-&gt;eth()-&gt;getTransactionReceipt(new TransactionHash($txHash));
+if($getTransactionReceipt){
+	# Success
+}else{
+	# Failed
+}
 </code></pre>
 
-<p>這時會產生public資料夾，這是Hugo生成所有網頁檔案的位置<br />
-接著你就可以將public的所有檔案push到Github就大功告成囉～</p>
-
-<p><img src="https://kira5033.github.io/images/20190528_mywebsite.png" alt="Hugo" /></p>
+<blockquote>
+<p>交易成立 ≠ 交易成功，千萬不能成立後直接完成<br />
+由於區塊鏈是屬於工作量證明，需等別人做完這件事才算完成，個人解釋為搓合成功</p>
+</blockquote>
               
             </div>
           </div>
@@ -349,7 +344,9 @@ This is my first post.
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/hugo/">Hugo</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">php</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/ethereum/">ethereum</a>
 
                   </div>
                 
@@ -362,7 +359,7 @@ This is my first post.
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/" data-tooltip="PHP簡易串接Line Notify">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -370,7 +367,7 @@ This is my first post.
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -388,19 +385,19 @@ This is my first post.
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -448,7 +445,7 @@ This is my first post.
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/" data-tooltip="PHP簡易串接Line Notify">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -456,7 +453,7 @@ This is my first post.
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -474,19 +471,19 @@ This is my first post.
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -516,19 +513,19 @@ This is my first post.
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F05%2F%25E4%25BD%25BF%25E7%2594%25A8github%25E9%2583%25A8%25E7%25BD%25B2hugo%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2F%25E5%259C%25A8php%25E7%2592%25B0%25E5%25A2%2583%25E4%25BB%25A5json-rpc%25E5%2591%25BC%25E5%258F%25AB%25E5%258D%2580%25E5%25A1%258A%25E9%258F%2588%25E7%25AF%2580%25E9%25BB%259E%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F05%2F%25E4%25BD%25BF%25E7%2594%25A8github%25E9%2583%25A8%25E7%25BD%25B2hugo%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2F%25E5%259C%25A8php%25E7%2592%25B0%25E5%25A2%2583%25E4%25BB%25A5json-rpc%25E5%2591%25BC%25E5%258F%25AB%25E5%258D%2580%25E5%25A1%258A%25E9%258F%2588%25E7%25AF%2580%25E9%25BB%259E%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F05%2F%25E4%25BD%25BF%25E7%2594%25A8github%25E9%2583%25A8%25E7%25BD%25B2hugo%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2F%25E5%259C%25A8php%25E7%2592%25B0%25E5%25A2%2583%25E4%25BB%25A5json-rpc%25E5%2591%25BC%25E5%258F%25AB%25E5%258D%2580%25E5%25A1%258A%25E9%258F%2588%25E7%25AF%2580%25E9%25BB%259E%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -717,9 +714,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2019\/05\/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E\/';
           
-            this.page.identifier = '\/2019\/05\/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99\/'
+            this.page.identifier = '\/2019\/06\/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E\/'
           
         };
         (function() {
