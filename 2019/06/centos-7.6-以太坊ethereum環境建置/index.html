@@ -253,36 +253,35 @@ if (!doNotTrack) {
 
 <h3 id="首先更新套件">首先更新套件</h3>
 
-<p>剛設置好CentOS後，先更新git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake</p>
+<p>剛設置好CentOS後，先更新git wget bzip2 vim gcc-c++ ntp epel-release nodejs</p>
 
-<pre><code>yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y
+<pre><code>$ yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs -y
 </code></pre>
 
 <h3 id="安裝go-ethereum">安裝go-ethereum</h3>
 
 <pre><code># 在這裡要先安裝Golang，待會需要編譯用
-wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
+$ wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
 
 # 解壓縮golang  
-tar zxvf go1.11.5.linux-amd64.tar.gz
+$ tar zxvf go1.11.5.linux-amd64.tar.gz
 
 # 搬移go到local下  
-mv go /usr/local
+$ mv go /usr/local
 
 # 配置GOROOT和PATH   
-echo&quot;export GOROOT=/usr/local/go&quot; &gt;&gt; /etc/profile
-echo&quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; /etc/profile
-source/etc/profile
+$ echo &quot;export GOROOT=/usr/local/go&quot; &gt;&gt; /etc/profile
+$ echo &quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; /etc/profile
+$ source/etc/profile
 
 # 下載go-ethereum  
-clone go-ethereum
-git clone https://github.com/ethereum/go-ethereum.git
-cd go-ethereum
-make all
+$ git clone https://github.com/ethereum/go-ethereum.git
+$ cd go-ethereum
+$ make all
 
 # 完成後在path中入geth路徑  
-echo &quot;export PATH=$PATH:/root/go-ethereum/build/bin&quot; &gt;&gt; /etc/profile  
-source /etc/profile  
+$ echo &quot;export PATH=$PATH:/root/go-ethereum/build/bin&quot; &gt;&gt; /etc/profile  
+$ source /etc/profile  
 </code></pre>
 
 <blockquote>
@@ -294,27 +293,28 @@ source /etc/profile
 
 <p><a href="https://cmake.org/download/">下載cmake最新版本</a></p>
 
-<pre><code>cd &amp;&amp; wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
+<pre><code>$ cd &amp;&amp; wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
 </code></pre>
 
 <h3 id="解壓並編譯並安裝">解壓並編譯並安裝</h3>
 
-<pre><code>tar -xzvf cmake-3.14.5.tar.gz
-cd cmaker-3.14.5
-./bootstrap &amp;&amp; make &amp;&amp; make install
+<pre><code>$ tar -xzvf cmake-3.14.5.tar.gz
+$ cd cmaker-3.14.5
+$ ./bootstrap --prefix=/usr/local
+$ make &amp;&amp; make install
 </code></pre>
 
 <h3 id="啓動網路時間同步">啓動網路時間同步</h3>
 
-<pre><code>systemctl enable ntpd
-systemctl start ntpd
+<pre><code>$ systemctl enable ntpd
+$ systemctl start ntpd
 </code></pre>
 
 <h3 id="開放防火牆port">開放防火牆port</h3>
 
-<pre><code>firewall-cmd --zone=public --add-port=8545/tcp --permanent
-firewall-cmd --zone=public --add-port=30303/tcp --permanent
-firewall-cmd --reload
+<pre><code>$ firewall-cmd --zone=public --add-port=8545/tcp --permanent
+$ firewall-cmd --zone=public --add-port=30303/tcp --permanent
+$ firewall-cmd --reload
 </code></pre>
 
 <blockquote>
@@ -352,7 +352,7 @@ RPCapi - 8545<br />
 
 <pre><code># 請注意，這是自行架設的私有鏈才需要初始化
 # 公有鏈不需操作此步驟
-geth --datadir &quot;/data/eth/chain&quot; init init.json
+$ geth --datadir &quot;/data/eth/chain&quot; init init.json
 </code></pre>
 
 <blockquote>
@@ -361,7 +361,7 @@ geth --datadir &quot;/data/eth/chain&quot; init init.json
 
 <h3 id="以太坊啟動">以太坊啟動</h3>
 
-<pre><code>geth --rpc --rpcaddr &quot;0.0.0.0&quot; --rpcport 8545 --rpccorsdomain &quot;*&quot; --datadir &quot;/data/eth/chain/&quot; --port &quot;30303&quot; --rpcapi &quot;db,eth,net,web3,personal&quot; --networkid 100000 --allow-insecure-unlock console 
+<pre><code>$ geth --rpc --rpcaddr &quot;0.0.0.0&quot; --rpcport 8545 --rpccorsdomain &quot;*&quot; --datadir &quot;/data/eth/chain/&quot; --port &quot;30303&quot; --rpcapi &quot;db,eth,net,web3,personal&quot; --networkid 100000 --allow-insecure-unlock console 
 </code></pre>
 
 <p>如果有看到Welcome to the Geth JavaScript console!的字樣，私有鏈就算架設完成囉～</p>
@@ -371,10 +371,10 @@ geth --datadir &quot;/data/eth/chain&quot; init init.json
 <p>基本上啟動以太坊一定是Server端啟用，所以如果在其他電腦上也想進入Console畫面，就要Remote進去</p>
 
 <pre><code># 本機連接節點
-geth attach http://localhost:8545
+$ geth attach http://localhost:8545
 
 # 遠端連接節點
-geth attach http://remote_ip:8545
+$ geth attach http://remote_ip:8545
 </code></pre>
               
             </div>
