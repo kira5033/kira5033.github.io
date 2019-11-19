@@ -7,38 +7,50 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
-<meta name="keywords" content="">
-<meta name="description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta name="keywords" content="tech">
+<meta name="description" content="先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。
+
+比較完整比較介紹可以參考這裡">
 
 
-<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:description" content="先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。
+
+比較完整比較介紹可以參考這裡">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP簡易串接Line Notify">
-<meta name="twitter:title" content="PHP簡易串接Line Notify">
-<meta property="og:url" content="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
-<meta property="twitter:url" content="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+<meta property="og:title" content="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+<meta name="twitter:title" content="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+<meta property="og:url" content="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
+<meta property="twitter:url" content="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
-<meta name="twitter:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:description" content="先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。
+
+比較完整比較介紹可以參考這裡">
+<meta name="twitter:description" content="先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。
+
+比較完整比較介紹可以參考這裡">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2019-06-14T18:51:26">
+    <meta property="article:published_time" content="2019-11-19T11:14:29">
   
   
-    <meta property="article:modified_time" content="2019-06-14T18:51:26">
+    <meta property="article:modified_time" content="2019-11-19T11:14:29">
   
   
   
     
       <meta property="article:section" content="技術分享">
     
+      <meta property="article:section" content="區塊鏈">
+    
   
   
     
-      <meta property="article:tag" content="php">
+      <meta property="article:tag" content="centos">
     
-      <meta property="article:tag" content="line">
+      <meta property="article:tag" content="ethereum">
+    
+      <meta property="article:tag" content="parity">
     
   
 
@@ -59,14 +71,14 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>PHP簡易串接Line Notify</title>
+    <title>CentOS 7.6 以太坊Ethereum環境建置 - Parity篇</title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+    <link rel="canonical" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,15 +231,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      PHP簡易串接Line Notify
+      CentOS 7.6 以太坊Ethereum環境建置 - Parity篇
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-06-14T18:51:26&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-11-19T11:14:29&#43;08:00">
         
-  六月 14, 2019
+  十一月 19, 2019
 
       </time>
     
@@ -236,7 +248,9 @@ if (!doNotTrack) {
   
     <span>分類</span>
     
-      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e5%88%86%e4%ba%ab">技術分享</a>
+      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e5%88%86%e4%ba%ab">技術分享</a>, 
+    
+      <a class="category-link" href="https://kira5033.github.io/categories/%e5%8d%80%e5%a1%8a%e9%8f%88">區塊鏈</a>
     
   
 
@@ -246,52 +260,101 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果</p>
+              <p>先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。</p>
 
-<blockquote>
-<p>操作前提記得先將LINE Notify加入你的好友</p>
-</blockquote>
+<p>比較完整比較介紹可以參考<a href="https://ithelp.ithome.com.tw/articles/10201462">這裡</a></p>
 
-<h3 id="step-1">Step 1</h3>
+<h3 id="parity-one-line-binary-installer">Parity One-line Binary Installer</h3>
 
-<p>請先登入<a href="https://notify-bot.line.me/zh_TW/">LINE Notify</a></p>
-
-<h3 id="step-2">Step 2</h3>
-
-<p>使用發行權杖取得Token並記下來，它只會顯示一次<br />
-<img src="https://kira5033.github.io/images/20190614_get_token.png" alt="Token" /></p>
-
-<h3 id="step-3">Step 3</h3>
-
-<p>這時我們有了Token就可以發送訊息，以下我以php做簡易示範</p>
-
-<pre><code>&lt;?php
-$headers = array(
-    'Content-Type: multipart/form-data',
-    'Authorization: Bearer 你的Token'
-);
-$message = array(
-    'message' =&gt; 'Hello,Kira~'
-);
-$ch = curl_init();
-curl_setopt($ch , CURLOPT_URL , &quot;https://notify-api.line.me/api/notify&quot;);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
-$result = curl_exec($ch);
-curl_close($ch);
-?&gt;
+<pre><code>bash &lt;(curl https://get.parity.io -L) -r stable
 </code></pre>
 
-<p>回到我們的LINE就會看到剛發出的訊息</p>
+<pre><code>yum -y install libudev-devel
+yum -y group install &quot;Development Tools&quot;
+</code></pre>
 
-<p><img src="https://kira5033.github.io/images/20190614_get_line.jpg" alt="message" /></p>
+<p>理論上這裡就應該安裝完成，但是實裝還是有些細節需要修正，以下就是一些部分套件需要更新，完成才可以正常啟動Parity。</p>
 
-<blockquote>
-<p>請注意，Bearer後面是有空格的</p>
-</blockquote>
+<h3 id="centos升級glibc至2-18">centos升級glibc至2.18</h3>
 
-<p>LINE Notify還可以傳送圖片及基本貼圖，可自行詳閱<a href="https://notify-bot.line.me/doc/en/">API文件</a></p>
+<pre><code>wget http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
+
+tar -xzvf glibc-2.18.tar.gz
+cd glibc-2.18
+</code></pre>
+
+<h3 id="建立build資料夾-編譯">建立build資料夾 &amp; 編譯</h3>
+
+<pre><code>mkdir build
+cd build
+
+../configure --prefix=/usr
+make -j4
+make install
+
+#確認一下版本 要超過 2.18 以上
+strings /lib64/libc.so.6 |grep GLIBC_
+</code></pre>
+
+<h3 id="升級-glibcxx-3-4-20-以上">升級 GLIBCXX_3.4.20 以上</h3>
+
+<pre><code>#確認版本是否存在 GLIBCXX_3.4.20 以上
+strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
+
+#找一下其他版本的 libstdc++.so.6
+find / -name libstdc++.so.6*
+
+#如果本機沒有，就 ftp 上傳 lib 裡面的 libstdc++.so.6.0.22 檔案上去 server
+
+#複製到 /usr/lib64/ 目錄底下
+cp /usr/local/lib64/libstdc++.so.6.0.22 /usr/lib64/
+
+#重新做 symbiolic link 並確認版本是否存在 GLIBCXX_3.4.20 以上
+rm -f /usr/lib64/libstdc++.so.6
+ln -s /usr/lib64/libstdc++.so.6.0.22 /usr/lib64/libstdc++.so.6
+
+strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
+</code></pre>
+
+<h1 id="parity-安裝完畢">Parity 安裝完畢</h1>
+
+<HR>
+
+<h3 id="快速啟動parity">快速啟動Parity</h3>
+
+<pre><code>parity --allow-ips=public --max-peers=256 --max-pending-peers=256 --cache-size=30720 --no-serve-light --no-periodic-snapshot --no-secretstore --no-ipc --no-hardware-wallets --no-jsonrpc --no-ws --scale-verifiers
+</code></pre>
+
+<p>但你也可以使用config的方式自訂啟動參數</p>
+
+<h3 id="啟動參數">啟動參數</h3>
+
+<p>啟動參數設定網址：
+<a href="https://paritytech.github.io/parity-config-generator/">https://paritytech.github.io/parity-config-generator/</a></p>
+
+<h3 id="路徑及參數檔建置">路徑及參數檔建置</h3>
+
+<pre><code>mkdir /parity
+mkdir /parity/config
+mkdir /parity/logs
+parity --config=&quot;/parity/config/config.toml&quot; 
+</code></pre>
+
+<h3 id="設定成為-daemon">設定成為 daemon</h3>
+
+<pre><code>sudo wget https://raw.githubusercontent.com/paritytech/parity-ethereum/master/scripts/parity.service -O /etc/systemd/system/parity.service
+sudo chmod +x /etc/systemd/system/parity.service
+sudo systemctl enable parity
+sudo systemctl start parity
+</code></pre>
+
+<h3 id="要變更parity-service的設定目錄">要變更parity.service的設定目錄</h3>
+
+<pre><code>/usr/bin/parity --config /parity-lite/config/config-light.toml
+</code></pre>
+
+<p>daemon參考：<br />
+<a href="https://ethereum.stackexchange.com/questions/7392/how-to-setup-parity-daemon">https://ethereum.stackexchange.com/questions/7392/how-to-setup-parity-daemon</a></p>
               
             </div>
           </div>
@@ -303,9 +366,11 @@ curl_close($ch);
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">php</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/centos/">centos</a>
 
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/line/">line</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/ethereum/">ethereum</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/parity/">parity</a>
 
                   </div>
                 
@@ -318,7 +383,7 @@ curl_close($ch);
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -326,7 +391,7 @@ curl_close($ch);
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Geth篇">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/" data-tooltip="PHP簡易串接Line Notify">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -344,19 +409,19 @@ curl_close($ch);
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -404,7 +469,7 @@ curl_close($ch);
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -412,7 +477,7 @@ curl_close($ch);
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Geth篇">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/" data-tooltip="PHP簡易串接Line Notify">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -430,19 +495,19 @@ curl_close($ch);
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -472,19 +537,19 @@ curl_close($ch);
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F11%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE-parity%25E7%25AF%2587%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F11%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE-parity%25E7%25AF%2587%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F11%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE-parity%25E7%25AF%2587%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -675,9 +740,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2019\/11\/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87\/';
           
-            this.page.identifier = '\/2019\/06\/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/'
+            this.page.identifier = '\/2019\/11\/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87\/'
           
         };
         (function() {

@@ -6,17 +6,28 @@
     <description>Recent content in centos on Kira&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 03 Jun 2019 16:26:25 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 11:14:29 +0800</lastBuildDate>
     
 	<atom:link href="https://kira5033.github.io/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>CentOS 7.6 以太坊Ethereum環境建置</title>
-      <link>https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/</link>
+      <title>CentOS 7.6 以太坊Ethereum環境建置 - Parity篇</title>
+      <link>https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/</link>
+      <pubDate>Tue, 19 Nov 2019 11:14:29 +0800</pubDate>
+      
+      <guid>https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/</guid>
+      <description>&lt;p&gt;先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。&lt;/p&gt;
+
+&lt;p&gt;比較完整比較介紹可以參考&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10201462&#34;&gt;這裡&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7.6 以太坊Ethereum環境建置 - Geth篇</title>
+      <link>https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/</link>
       <pubDate>Mon, 03 Jun 2019 16:26:25 +0800</pubDate>
       
-      <guid>https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/</guid>
+      <guid>https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/</guid>
       <description>&lt;p&gt;個人紀錄在CentOS 7.6的環境下建置以太坊&lt;/p&gt;</description>
     </item>
     
