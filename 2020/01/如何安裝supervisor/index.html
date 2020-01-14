@@ -303,17 +303,17 @@ files = /etc/supervisor/conf.d/*.conf
 
 <p>我們把一段簡單的排程工作寫進conf.d</p>
 
-<pre><code>[program:test]                                  # 為此排程命名為test，啟動及關閉排程時所認定的名稱
-command=bash -i -c &quot;echo $(date) &amp;&amp; sleep 5&quot;	# 撰寫執行指令
-autostart=true                                  # 自動執行
-autorestart=true                                # 中斷時自動重啟
-stderr_logfile=/var/log/test.err.log            # 輸出 錯誤log
-stdout_logfile=/var/log/test.out.log            # 輸出 排程log
-user=linkira                                    # 選擇執行的帳號
+<pre><code>[program:test] # 為此排程命名為test，啟動及關閉排程時所認定的名稱
+command=bash -i -c &quot;echo $(date) &amp;&amp; sleep 5&quot; # 撰寫執行指令
+autostart=true # 自動執行
+autorestart=true # 中斷時自動重啟
+stderr_logfile=/var/log/test.err.log # 輸出 錯誤log
+stdout_logfile=/var/log/test.out.log # 輸出 排程log
+user=linkira # 選擇執行的帳號
 environment=HOME=&quot;/home/linkira&quot;,USER=&quot;linkira&quot; # 設置執行環境及USER
 
 [supervisord]
-logfile_maxbytes=4294967296                     # 設定log檔大小，系統將會自動rotated
+logfile_maxbytes=4294967296 # 設定log檔大小，系統將會自動rotated
 </code></pre>
 
 <p>到這裡基本上已經完成了</p>
