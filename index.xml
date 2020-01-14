@@ -6,10 +6,19 @@
     <description>Recent content on Kira&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 19 Nov 2019 11:14:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 11:26:57 +0800</lastBuildDate>
     
 	<atom:link href="https://kira5033.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何安裝supervisor</title>
+      <link>https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/</link>
+      <pubDate>Tue, 14 Jan 2020 11:26:57 +0800</pubDate>
+      
+      <guid>https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/</guid>
+      <description>&lt;p&gt;由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>CentOS 7.6 以太坊Ethereum環境建置 - Parity篇</title>

@@ -8,37 +8,39 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
 <meta name="keywords" content="">
-<meta name="description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
+<meta name="description" content="由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程">
 
 
-<meta property="og:description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
+<meta property="og:description" content="由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 7.6 以太坊Ethereum環境建置">
-<meta name="twitter:title" content="CentOS 7.6 以太坊Ethereum環境建置">
-<meta property="og:url" content="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
-<meta property="twitter:url" content="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+<meta property="og:title" content="如何安裝supervisor">
+<meta name="twitter:title" content="如何安裝supervisor">
+<meta property="og:url" content="https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
+<meta property="twitter:url" content="https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
-<meta name="twitter:description" content="個人紀錄在CentOS 7.6的環境下建置以太坊">
+<meta property="og:description" content="由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程">
+<meta name="twitter:description" content="由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2019-06-03T16:26:25">
+    <meta property="article:published_time" content="2020-01-14T11:26:57">
   
   
-    <meta property="article:modified_time" content="2019-06-03T16:26:25">
+    <meta property="article:modified_time" content="2020-01-14T11:26:57">
   
-  
-  
-    
-      <meta property="article:section" content="技術分享">
-    
   
   
     
-      <meta property="article:tag" content="centos">
+      <meta property="article:section" content="Linux">
     
-      <meta property="article:tag" content="ethereum">
+  
+  
+    
+      <meta property="article:tag" content="linux">
+    
+      <meta property="article:tag" content="supervisor">
+    
+      <meta property="article:tag" content="laravel">
     
   
 
@@ -51,9 +53,6 @@
 
 
 
-  <meta property="og:image" content="https://kira5033.github.io/images/20190611_ethereumpic2.jpg">
-  <meta property="twitter:image" content="https://kira5033.github.io/images/20190611_ethereumpic2.jpg">
-
 
 
 
@@ -62,14 +61,14 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>CentOS 7.6 以太坊Ethereum環境建置</title>
+    <title>如何安裝supervisor</title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+    <link rel="canonical" href="https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -222,15 +221,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      CentOS 7.6 以太坊Ethereum環境建置
+      如何安裝supervisor
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-06-03T16:26:25&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-01-14T11:26:57&#43;08:00">
         
-  六月 3, 2019
+  一月 14, 2020
 
       </time>
     
@@ -239,7 +238,7 @@ if (!doNotTrack) {
   
     <span>分類</span>
     
-      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e5%88%86%e4%ba%ab">技術分享</a>
+      <a class="category-link" href="https://kira5033.github.io/categories/linux">Linux</a>
     
   
 
@@ -249,133 +248,128 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>個人紀錄在CentOS 7.6的環境下建置以太坊</p>
+              <p>由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程</p>
 
-<h3 id="首先更新套件">首先更新套件</h3>
+<p>這次記錄於Ubuntu 18.04.3版本下操作</p>
 
-<p>剛設置好CentOS後，先更新git wget bzip2 vim gcc-c++ ntp epel-release nodejs</p>
+<p>安裝supervisor</p>
 
-<pre><code>$ yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs -y
+<pre><code>sudo apt install supervisor
 </code></pre>
 
-<h3 id="安裝go-ethereum">安裝go-ethereum</h3>
+<p>安裝完成後，會在etc下產生supervisor的資料夾</p>
 
-<pre><code># 在這裡要先安裝Golang，待會需要編譯用
-$ wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
-
-# 解壓縮golang  
-$ tar zxvf go1.11.5.linux-amd64.tar.gz
-
-# 搬移go到local下  
-$ mv go /usr/local
-
-# 配置GOROOT和PATH   
-$ echo &quot;export GOROOT=/usr/local/go&quot; &gt;&gt; /etc/profile
-$ echo &quot;export PATH=$PATH:/usr/local/go/bin&quot; &gt;&gt; /etc/profile
-$ source/etc/profile
-
-# 下載go-ethereum  
-$ git clone https://github.com/ethereum/go-ethereum.git
-$ cd go-ethereum
-$ make all
-
-# 完成後在path中入geth路徑  
-$ echo &quot;export PATH=$PATH:/root/go-ethereum/build/bin&quot; &gt;&gt; /etc/profile  
-$ source /etc/profile  
+<pre><code>root@linkira-virtual-machine:/etc# ls -la | grep supervisor
+drwxr-xr-x   3 root root    4096  1月 14 11:38 supervisor
 </code></pre>
 
-<blockquote>
-<p>compile: version &ldquo;goX.X&rdquo; does not match go tool version &ldquo;goX.X.X&rdquo;<br />
-若過程中跳出這種錯誤，個人解法是將步驟退回安裝golang，下載go tool version的golang即可</p>
-</blockquote>
+<p>而進入後打開supervisor.conf內容是這樣</p>
 
-<h3 id="安裝cmake-智能合約編譯solc需cmake編譯">安裝cmake：智能合約編譯solc需cmake編譯</h3>
+<pre><code>root@linkira-virtual-machine:/etc/supervisor# cat supervisord.conf
+; supervisor config file
 
-<p><a href="https://cmake.org/download/">下載cmake最新版本</a></p>
+[unix_http_server]
+file=/var/run/supervisor.sock   ; (the path to the socket file)
+chmod=0700                       ; sockef file mode (default 0700)
 
-<pre><code>$ cd &amp;&amp; wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
+[supervisord]
+logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)
+pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)
+
+; the below section must remain in the config file for RPC
+; (supervisorctl/web interface) to work, additional interfaces may be
+; added by defining them in separate rpcinterface: sections
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
+
+; The [include] section can just contain the &quot;files&quot; setting.  This
+; setting can list multiple files (separated by whitespace or
+; newlines).  It can also contain wildcards.  The filenames are
+; interpreted as relative to this file.  Included files *cannot*
+; include files themselves.
+
+[include]
+files = /etc/supervisor/conf.d/*.conf
 </code></pre>
 
-<h3 id="解壓並編譯並安裝">解壓並編譯並安裝</h3>
+<p>看到include這段，我們要把所有的排程設定檔放至conf.d下，且副檔名為conf<br />
+&gt; 要注意不同系統，副檔名不一樣
+&gt; CentOS - ini
+&gt; Ubuntu - conf</p>
 
-<pre><code>$ tar -xzvf cmake-3.14.5.tar.gz
-$ cd cmaker-3.14.5
-$ ./bootstrap --prefix=/usr/local
-$ make &amp;&amp; make install
+<p>我們把一段簡單的排程工作寫進conf.d</p>
+
+<pre><code>[program:test]									# 為此排程命名為test，啟動及關閉排程時所認定的名稱
+command=bash -i -c &quot;echo $(date) &amp;&amp; sleep 5&quot;	# 撰寫執行指令
+autostart=true									# 自動執行
+autorestart=true								# 中斷時自動重啟
+stderr_logfile=/var/log/test.err.log            # 輸出 錯誤log
+stdout_logfile=/var/log/test.out.log            # 輸出 排程log
+user=linkira                    				# 選擇執行的帳號
+environment=HOME=&quot;/home/linkira&quot;,USER=&quot;linkira&quot; # 設置執行環境及USER
+
+[supervisord]
+logfile_maxbytes=4294967296 					# 設定log檔大小，系統將會自動rotated
 </code></pre>
 
-<h3 id="啓動網路時間同步">啓動網路時間同步</h3>
+<p>到這裡基本上已經完成了</p>
 
-<pre><code>$ systemctl enable ntpd
-$ systemctl start ntpd
+<p>我們只要給他reload，排程就會開始執行</p>
+
+<pre><code>root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl reload
+Restarted supervisord
+
+root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl status
+test                             RUNNING   pid 7385, uptime 0:00:02
 </code></pre>
 
-<h3 id="開放防火牆port">開放防火牆port</h3>
+<p>我們來檢查一下log看看執行狀況</p>
 
-<pre><code>$ firewall-cmd --zone=public --add-port=8545/tcp --permanent
-$ firewall-cmd --zone=public --add-port=30303/tcp --permanent
-$ firewall-cmd --reload
+<pre><code>root@linkira-virtual-machine:/etc/supervisor/conf.d# tail -f /var/log/test.out.log
+二 1月 14 12:06:46 CST 2020
+二 1月 14 12:06:53 CST 2020
+二 1月 14 12:06:59 CST 2020
 </code></pre>
 
-<blockquote>
-<p>Ethereum 節點 - 30303<br />
-RPCapi - 8545<br />
-&ndash;permanent為永久設定，否則防火牆重新啟動時將會失效</p>
-</blockquote>
+<p>假設我要變更輸出內容在前面增加一段文字</p>
 
-<h3 id="建立創世區塊文件">建立創世區塊文件</h3>
-
-<p>在go-ethereum/build/bin目錄下建立創世區塊文件init.json檔，內容如下</p>
-
-<pre><code>{
-  &quot;nonce&quot;: &quot;0x0000000000000042&quot;,
-  &quot;timestamp&quot;: &quot;0x00&quot;,
-  &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
-  &quot;extraData&quot;: &quot;0x00&quot;,
-  &quot;gasLimit&quot;: &quot;0x80000000&quot;,
-  &quot;difficulty&quot;: &quot;0x400&quot;,
-  &quot;mixhash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
-  &quot;coinbase&quot;: &quot;0x2D356ee3F5b8718d8690AFCD31Fe2CB5E602677e&quot;,
-  &quot;alloc&quot;: {},
-  &quot;config&quot;: {
-    &quot;chainId&quot;: 15,
-    &quot;homesteadBlock&quot;: 0,
-    &quot;eip155Block&quot;: 0,
-    &quot;eip158Block&quot;: 0
-  }
-}
+<pre><code>command=bash -i -c &quot;echo Hello Log $(date) &amp;&amp; sleep 5&quot;
 </code></pre>
 
-<h3 id="創世區塊初始化">創世區塊初始化</h3>
+<p>然而supervisor需要重新讀取conf，才會產生後續追加的文字</p>
 
-<p>請在ethereum/build/bin下操作</p>
+<pre><code>root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl reread
+test: changed
 
-<pre><code># 請注意，這是自行架設的私有鏈才需要初始化
-# 公有鏈不需操作此步驟
-$ geth --datadir &quot;/data/eth/chain&quot; init init.json
+root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl update
+test: stopped
+test: updated process group
+
+root@linkira-virtual-machine:/etc/supervisor/conf.d# tail -f /var/log/test.out.log
+Hello Log 二 1月 14 12:24:41 CST 2020
+Hello Log 二 1月 14 12:24:47 CST 2020
+Hello Log 二 1月 14 12:24:53 CST 2020
+Hello Log 二 1月 14 12:24:59 CST 2020
 </code></pre>
 
-<blockquote>
-<p>/data/eth/chain，建立資料位置可自行更換，建立前請先確保磁碟容量足夠，以及初始化文件名稱要和剛剛建立的必須一致</p>
-</blockquote>
+<p>最後來個指令總結</p>
 
-<h3 id="以太坊啟動">以太坊啟動</h3>
+<pre><code>supervisorctl reload # 重啟整個supervisor，若有設定自動執行的排程將會啟動
 
-<pre><code>$ geth --rpc --rpcaddr &quot;0.0.0.0&quot; --rpcport 8545 --rpccorsdomain &quot;*&quot; --datadir &quot;/data/eth/chain/&quot; --port &quot;30303&quot; --rpcapi &quot;db,eth,net,web3,personal&quot; --networkid 100000 --allow-insecure-unlock console 
+upervisorctl reread  # 檢查子排程是否有變更
+supervisorctl update # 自動更新至最新排程設定
+
+supervisorctl status # 檢查排程狀況
+supervisorctl start {name} # 啟動指定排程
+supervisorctl stop {name}  # 關閉指定排程
+supervisorctl restart {name} # 重啟指定排程
 </code></pre>
 
-<p>如果有看到Welcome to the Geth JavaScript console!的字樣，私有鏈就算架設完成囉～</p>
-
-<h3 id="開啟第二個console畫面">開啟第二個Console畫面</h3>
-
-<p>基本上啟動以太坊一定是Server端啟用，所以如果在其他電腦上也想進入Console畫面，就要Remote進去</p>
-
-<pre><code># 本機連接節點
-$ geth attach http://localhost:8545
-
-# 遠端連接節點
-$ geth attach http://remote_ip:8545
-</code></pre>
+<p>btw，我是以root執行所有supervisor指令，一般user的話記得使用sudo</p>
               
             </div>
           </div>
@@ -387,9 +381,11 @@ $ geth attach http://remote_ip:8545
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/centos/">centos</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/linux/">linux</a>
 
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/ethereum/">ethereum</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/supervisor/">supervisor</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/laravel/">laravel</a>
 
                   </div>
                 
@@ -402,7 +398,7 @@ $ geth attach http://remote_ip:8545
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/" data-tooltip="在PHP環境以JSON-RPC呼叫區塊鏈節點">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -410,7 +406,7 @@ $ geth attach http://remote_ip:8545
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/" data-tooltip="使用Github部署Hugo靜態網站">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -428,19 +424,19 @@ $ geth attach http://remote_ip:8545
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -475,7 +471,7 @@ $ geth attach http://remote_ip:8545
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2019 Lin Kira. All Rights Reserved
+    &copy; 2020 Lin Kira. All Rights Reserved
   </span>
 </footer>
 
@@ -488,7 +484,7 @@ $ geth attach http://remote_ip:8545
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/" data-tooltip="在PHP環境以JSON-RPC呼叫區塊鏈節點">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -496,7 +492,7 @@ $ geth attach http://remote_ip:8545
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/" data-tooltip="使用Github部署Hugo靜態網站">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -514,19 +510,19 @@ $ geth attach http://remote_ip:8545
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -556,19 +552,19 @@ $ geth attach http://remote_ip:8545
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2020%2F01%2F%25E5%25A6%2582%25E4%25BD%2595%25E5%25AE%2589%25E8%25A3%259Dsupervisor%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2020%2F01%2F%25E5%25A6%2582%25E4%25BD%2595%25E5%25AE%2589%25E8%25A3%259Dsupervisor%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fcentos-7.6-%25E4%25BB%25A5%25E5%25A4%25AA%25E5%259D%258Aethereum%25E7%2592%25B0%25E5%25A2%2583%25E5%25BB%25BA%25E7%25BD%25AE%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2020%2F01%2F%25E5%25A6%2582%25E4%25BD%2595%25E5%25AE%2589%25E8%25A3%259Dsupervisor%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -629,6 +625,42 @@ $ geth attach http://remote_ip:8545
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/">
+                <h3 class="media-heading">如何安裝supervisor</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/">
+                <h3 class="media-heading">CentOS 7.6 以太坊Ethereum環境建置 - Parity篇</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>先前是以Geth建置以太坊節點，這次改以Parity建置環境，由於Parity同步速度更快，且同步的資料相較Geth更好一些，還有排程可以設定，以節點來說，這功能就相當不錯。</p>
+
+<p>比較完整比較介紹可以參考<a href="https://ithelp.ithome.com.tw/articles/10201462">這裡</a></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
                 <h3 class="media-heading">PHP簡易串接Line Notify</h3>
               </a>
@@ -646,25 +678,8 @@ $ geth attach http://remote_ip:8545
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://kira5033.github.io/2019/06/%E5%9C%A8php%E7%92%B0%E5%A2%83%E4%BB%A5json-rpc%E5%91%BC%E5%8F%AB%E5%8D%80%E5%A1%8A%E9%8F%88%E7%AF%80%E9%BB%9E/">
-                <h3 class="media-heading">在PHP環境以JSON-RPC呼叫區塊鏈節點</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jun 6, 2019
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>簡易紀錄使用JSON-RPC在網站與區塊鏈做溝通</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE/">
-                <h3 class="media-heading">CentOS 7.6 以太坊Ethereum環境建置</h3>
+              <a class="link-unstyled" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/">
+                <h3 class="media-heading">CentOS 7.6 以太坊Ethereum環境建置 - Geth篇</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
@@ -702,7 +717,7 @@ $ geth attach http://remote_ip:8545
          data-message-zero="沒有找到文章"
          data-message-one="找到 1 篇文章"
          data-message-other="找到 {n} 篇文章">
-         4 posts found
+         5 posts found
       </p>
     </div>
   </div>
@@ -757,9 +772,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2020\/01\/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor\/';
           
-            this.page.identifier = '\/2019\/06\/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE\/'
+            this.page.identifier = '\/2020\/01\/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor\/'
           
         };
         (function() {

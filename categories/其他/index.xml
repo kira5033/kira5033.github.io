@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>其他 on Kira&#39;s Blog</title>
+    <link>https://kira5033.github.io/categories/%E5%85%B6%E4%BB%96/</link>
+    <description>Recent content in 其他 on Kira&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Mon, 27 May 2019 11:49:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://kira5033.github.io/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Github部署Hugo靜態網站</title>
+      <link>https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/</link>
+      <pubDate>Mon, 27 May 2019 11:49:40 +0800</pubDate>
+      
+      <guid>https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/</guid>
+      <description>&lt;p&gt;目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，&lt;br /&gt;
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
