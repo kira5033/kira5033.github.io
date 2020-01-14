@@ -38,6 +38,8 @@
     
       <meta property="article:tag" content="ubuntu">
     
+      <meta property="article:tag" content="centos">
+    
       <meta property="article:tag" content="supervisor">
     
       <meta property="article:tag" content="laravel">
@@ -250,7 +252,11 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程</p>
 
-<p>這次記錄於Ubuntu 18.04.3版本下操作</p>
+<p>前面先以Ubuntu安裝做基礎介紹，結尾會再補充CentOS的部分</p>
+
+<h3 id="ubuntu篇">Ubuntu篇</h3>
+
+<p>Ubuntu 18.04.3版本下操作</p>
 
 <p>安裝supervisor</p>
 
@@ -374,6 +380,44 @@ supervisorctl restart {name} # 重啟指定排程
 
 <p>btw，我是以root執行所有supervisor指令，一般user的話記得使用sudo</p>
 
+<HR>
+
+<h3 id="centos篇">CentOS篇</h3>
+
+<p>CentOS Linux release 7.6.1810 版本下操作</p>
+
+<p>首先一樣先安裝supervisor</p>
+
+<pre><code>yum -y install epel-release # 新主機的話請先安裝這包
+
+yum -y install supervisor 
+</code></pre>
+
+<p>安裝後到etc檢查一下目錄，會發現跟ubuntu的稍微不太一樣</p>
+
+<pre><code>[root@localhost etc]# ls -la | grep supervisord
+-rw-r--r--.  1 root root     7953  7月 29  2017 supervisord.conf
+drwxr-xr-x.  2 root root       22  1月 14 14:33 supervisord.d
+</code></pre>
+
+<p>這次我們也檢查看看conf檔中include的內容</p>
+
+<pre><code>[include]
+files = supervisord.d/*.ini # 在ubuntu篇提到的，兩個系統的副檔名是不一樣的
+</code></pre>
+
+<p>到這裡可能大家都熟悉怎麼後續操作了，當排程檔案設定完後，接著要啟動supervisor時，卻報出了錯誤</p>
+
+<pre><code>error: &lt;class 'socket.error'&gt;, [Errno 2] No such file or directory: file: /usr/lib64/python2.7/socket.py line: 224
+</code></pre>
+
+<p>在CentOS時，我們要多做一個指定conf檔案的動作，這樣才可以正常執行</p>
+
+<pre><code>supervisord -c /etc/supervisord.conf # 請以root執行，並設定正確的conf路徑
+</code></pre>
+
+<p>剩下操作都跟ubuntu一樣了，這樣就大功告成囉～</p>
+
 <p>可參考文件：<a href="http://supervisord.org/index.html" target="_blank">Supervisor</a></p>
               
             </div>
@@ -387,6 +431,8 @@ supervisorctl restart {name} # 重啟指定排程
                     <span class="text-color-light text-small">標籤</span><br/>
                     
   <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/ubuntu/">ubuntu</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/centos/">centos</a>
 
   <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/supervisor/">supervisor</a>
 
