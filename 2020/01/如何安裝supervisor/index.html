@@ -36,7 +36,7 @@
   
   
     
-      <meta property="article:tag" content="linux">
+      <meta property="article:tag" content="ubuntu">
     
       <meta property="article:tag" content="supervisor">
     
@@ -296,10 +296,13 @@ serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
 files = /etc/supervisor/conf.d/*.conf
 </code></pre>
 
-<p>看到include這段，我們要把所有的排程設定檔放至conf.d下，且副檔名為conf<br />
-&gt; 要注意不同系統，副檔名不一樣<br />
-&gt; CentOS - ini<br />
-&gt; Ubuntu - conf</p>
+<p>看到include這段，我們要把所有的排程設定檔放至conf.d下，且副檔名為conf</p>
+
+<blockquote>
+<p>要注意不同系統，副檔名不一樣<br />
+CentOS - ini<br />
+Ubuntu - conf</p>
+</blockquote>
 
 <p>我們把一段簡單的排程工作寫進conf.d</p>
 
@@ -383,7 +386,7 @@ supervisorctl restart {name} # 重啟指定排程
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/linux/">linux</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/ubuntu/">ubuntu</a>
 
   <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/supervisor/">supervisor</a>
 
