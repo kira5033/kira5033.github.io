@@ -7,38 +7,44 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
-<meta name="keywords" content="">
-<meta name="description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta name="keywords" content="PHP, Heroku">
+<meta name="description" content="利用Heroku快速部署你的PHP專案
+
+前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，剛好最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
 
 
-<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:description" content="利用Heroku快速部署你的PHP專案
+
+前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，剛好最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP簡易串接Line Notify">
-<meta name="twitter:title" content="PHP簡易串接Line Notify">
-<meta property="og:url" content="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
-<meta property="twitter:url" content="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+<meta property="og:title" content="利用Heroku快速部署你的PHP專案">
+<meta name="twitter:title" content="利用Heroku快速部署你的PHP專案">
+<meta property="og:url" content="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
+<meta property="twitter:url" content="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
 <meta property="og:site_name" content="Kira&#39;s Blog">
-<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
-<meta name="twitter:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:description" content="利用Heroku快速部署你的PHP專案
+
+前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，剛好最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
+<meta name="twitter:description" content="利用Heroku快速部署你的PHP專案
+
+前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，剛好最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2019-06-14T18:51:26">
+    <meta property="article:published_time" content="2020-03-09T21:29:53">
   
   
-    <meta property="article:modified_time" content="2019-06-14T18:51:26">
+    <meta property="article:modified_time" content="2020-03-09T21:29:53">
   
-  
-  
-    
-      <meta property="article:section" content="第三方服務">
-    
   
   
     
-      <meta property="article:tag" content="php">
+      <meta property="article:section" content="其他">
     
-      <meta property="article:tag" content="line">
+  
+  
+    
+      <meta property="article:tag" content="Heroku">
     
   
 
@@ -59,14 +65,14 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>PHP簡易串接Line Notify</title>
+    <title>利用Heroku快速部署你的PHP專案</title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+    <link rel="canonical" href="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,15 +225,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      PHP簡易串接Line Notify
+      利用Heroku快速部署你的PHP專案
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-06-14T18:51:26&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-03-09T21:29:53&#43;08:00">
         
-  六月 14, 2019
+  三月 9, 2020
 
       </time>
     
@@ -236,7 +242,7 @@ if (!doNotTrack) {
   
     <span>分類</span>
     
-      <a class="category-link" href="https://kira5033.github.io/categories/%e7%ac%ac%e4%b8%89%e6%96%b9%e6%9c%8d%e5%8b%99">第三方服務</a>
+      <a class="category-link" href="https://kira5033.github.io/categories/%e5%85%b6%e4%bb%96">其他</a>
     
   
 
@@ -246,52 +252,76 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果</p>
+              <h1 id="利用heroku快速部署你的php專案">利用Heroku快速部署你的PHP專案</h1>
+
+<p>前端<strong>Javascript</strong>有Github page可以做Demo，但後端語言像是<strong>PHP</strong>、<strong>Python</strong>就需要環境才可以執行，但是又想當免費仔不花錢租機器，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，剛好最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。</p>
+
+<p>既然是免費仔，我們先來看一下比較表</p>
+
+<p><img src="https://images2.imgbox.com/2e/77/GHjyP3Uf_o.png" alt="image host"/></p>
+
+<p><br>
+基本上，單純做個Demo版，記憶體512MB就很夠用了，比較重要的是機器如果30分都沒有活動將會自動睡眠，而每個月都有550小時的使用時數，以一個開發、Demo用的機器來看，夫復何求啊～</p>
+
+<p><img src="https://images2.imgbox.com/a6/45/kNhbD9In_o.png" alt="image host"/></p>
+
+<p>好了，就此進入正題吧！</p>
 
 <blockquote>
-<p>操作前提記得先將LINE Notify加入你的好友</p>
+<p>使用Heroku前記得要安裝git，專案部署還是以git為主</p>
 </blockquote>
 
-<h3 id="step-1">Step 1</h3>
+<h2 id="step-1-註冊">Step 1 - 註冊</h2>
 
-<p>請先登入<a href="https://notify-bot.line.me/zh_TW/">LINE Notify</a></p>
+<p>註冊帳號以及新增你的測試機<br />
+<img src="https://images2.imgbox.com/62/26/6Sc8lgdo_o.png" alt="image host"/></p>
 
-<h3 id="step-2">Step 2</h3>
+<h2 id="step-2-安裝cli">Step 2 - 安裝CLI</h2>
 
-<p>使用發行權杖取得Token並記下來，它只會顯示一次<br />
-<img src="https://images2.imgbox.com/13/ef/G3BKwTyx_o.png" alt="imgbox"/></p>
+<p>安裝Heroku的CLI，部署必備，可使用<code>heroku -v</code>檢查是否安裝成功</p>
 
-<h3 id="step-3">Step 3</h3>
+<p><img src="https://images2.imgbox.com/b1/2d/UEPjyvBh_o.png" alt="image host"/></p>
 
-<p>這時我們有了Token就可以發送訊息，以下我以php做簡易示範</p>
+<h2 id="step-3-建立資料夾-登入">Step 3 - 建立資料夾＆登入</h2>
 
-<pre><code>&lt;?php
-$headers = array(
-    'Content-Type: multipart/form-data',
-    'Authorization: Bearer 你的Token'
-);
-$message = array(
-    'message' =&gt; 'Hello,Kira~'
-);
-$ch = curl_init();
-curl_setopt($ch , CURLOPT_URL , &quot;https://notify-api.line.me/api/notify&quot;);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
-$result = curl_exec($ch);
-curl_close($ch);
-?&gt;
+<p>建立一個資料夾並cd進去，接著登入Heroku</p>
+
+<pre><code># 依照指示登入
+sudo heroku login  
+(heroku: Press any key to open up the browser to login or q to exit)
 </code></pre>
 
-<p>回到我們的LINE就會看到剛發出的訊息</p>
+<p><img src="https://images2.imgbox.com/ef/be/1eTfeOn0_o.png" alt="image host"/><br />
+按下Login～</p>
 
-<p><img src="https://images2.imgbox.com/b9/0c/XsTkLUhY_o.jpg" alt="imgbox"/></p>
+<p><img src="https://images2.imgbox.com/f7/b4/9P4DlznC_o.png" alt="image host"/><br />
+回到Terminal就會看到成功登入的畫面</p>
 
-<blockquote>
-<p>請注意，Bearer後面是有空格的</p>
-</blockquote>
+<h2 id="step-4-開始部署">Step 4 - 開始部署</h2>
 
-<p>LINE Notify還可以傳送圖片及基本貼圖，可自行詳閱<a href="https://notify-bot.line.me/doc/en/">API文件</a></p>
+<p>登入Heroku並進行部署</p>
+
+<pre><code># 新增composer.json
+touch composer.json  
+
+# 開始部署
+git init  
+sudo heroku git:remote -a 專案名稱  
+git add .  
+git commit -m 'deploy'  
+git push heroku master
+</code></pre>
+
+<p>我在最後push時有遇到個小問題，他問了我帳號及密碼，這裡我輸入了半天都無法成功，最後在使用者根目錄下找到 <code>.netrc</code> 這個檔案，裡面會有heroku及git的資訊，這樣就成功push了</p>
+
+<p><img src="https://images2.imgbox.com/0e/ef/vuyofYbm_o.png" alt="image host"/></p>
+
+<h2 id="step-5-最後檢查">Step 5 - 最後檢查</h2>
+
+<p>接著我們就來檢查看看有沒有部署成功囉
+網址連結：<code>https://專案名稱.herokuapp.com/</code></p>
+
+<p><img src="https://images2.imgbox.com/43/d8/9QtRpfov_o.png" alt="image host"/></p>
               
             </div>
           </div>
@@ -303,9 +333,7 @@ curl_close($ch);
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">php</a>
-
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/line/">line</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/heroku/">Heroku</a>
 
                   </div>
                 
@@ -318,7 +346,7 @@ curl_close($ch);
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -326,7 +354,7 @@ curl_close($ch);
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Geth篇">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/" data-tooltip="如何安裝supervisor">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -344,19 +372,19 @@ curl_close($ch);
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -404,7 +432,7 @@ curl_close($ch);
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -412,7 +440,7 @@ curl_close($ch);
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Geth篇">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/" data-tooltip="如何安裝supervisor">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -430,19 +458,19 @@ curl_close($ch);
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -472,19 +500,19 @@ curl_close($ch);
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2F%25E5%2588%25A9%25E7%2594%25A8heroku%25E5%25BF%25AB%25E9%2580%259F%25E9%2583%25A8%25E7%25BD%25B2%25E4%25BD%25A0%25E7%259A%2584php%25E5%25B0%2588%25E6%25A1%2588%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2F%25E5%2588%25A9%25E7%2594%25A8heroku%25E5%25BF%25AB%25E9%2580%259F%25E9%2583%25A8%25E7%25BD%25B2%25E4%25BD%25A0%25E7%259A%2584php%25E5%25B0%2588%25E6%25A1%2588%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2F%25E5%2588%25A9%25E7%2594%25A8heroku%25E5%25BF%25AB%25E9%2580%259F%25E9%2583%25A8%25E7%25BD%25B2%25E4%25BD%25A0%25E7%259A%2584php%25E5%25B0%2588%25E6%25A1%2588%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -711,9 +739,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2020\/03\/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88\/';
           
-            this.page.identifier = '\/2019\/06\/php%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/'
+            this.page.identifier = '\/2020\/03\/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84php%E5%B0%88%E6%A1%88\/'
           
         };
         (function() {

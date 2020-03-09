@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>其他 on Kira&#39;s Blog</title>
-    <link>https://kira5033.github.io/categories/%E5%85%B6%E4%BB%96/</link>
-    <description>Recent content in 其他 on Kira&#39;s Blog</description>
+    <title>Heroku on Kira&#39;s Blog</title>
+    <link>https://kira5033.github.io/tags/heroku/</link>
+    <description>Recent content in Heroku on Kira&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 09 Mar 2020 21:29:53 +0800</lastBuildDate>
     
-	<atom:link href="https://kira5033.github.io/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kira5033.github.io/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <description>&lt;h1 id=&#34;利用heroku快速部署你的php專案&#34;&gt;利用Heroku快速部署你的PHP專案&lt;/h1&gt;
 
 &lt;p&gt;前端&lt;strong&gt;Javascript&lt;/strong&gt;有Github page可以做Demo，但後端語言像是&lt;strong&gt;PHP&lt;/strong&gt;、&lt;strong&gt;Python&lt;/strong&gt;就需要環境才可以執行，但是又想當免費仔不花錢租機器，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，剛好最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用Github部署Hugo靜態網站</title>
-      <link>https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/</link>
-      <pubDate>Mon, 27 May 2019 11:49:40 +0800</pubDate>
-      
-      <guid>https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/</guid>
-      <description>&lt;p&gt;目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，&lt;br /&gt;
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。&lt;/p&gt;</description>
     </item>
     
   </channel>
