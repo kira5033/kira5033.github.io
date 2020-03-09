@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>如何安裝supervisor</title>
-      <link>https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/</link>
+      <title>Laravel - 如何安裝Supervisor</title>
+      <link>https://kira5033.github.io/2020/01/laravel-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/</link>
       <pubDate>Tue, 14 Jan 2020 11:26:57 +0800</pubDate>
       
-      <guid>https://kira5033.github.io/2020/01/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/</guid>
+      <guid>https://kira5033.github.io/2020/01/laravel-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/</guid>
       <description>&lt;p&gt;由於Laravel專案關係，需要使用Supervisor來處理Queue的工作，這裡作個簡單記錄此套件安裝過程&lt;/p&gt;</description>
     </item>
     
