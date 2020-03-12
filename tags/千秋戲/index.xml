@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>千秋戲 on Kira&#39;s Blog</title>
+    <link>https://kira5033.github.io/tags/%E5%8D%83%E7%A7%8B%E6%88%B2/</link>
+    <description>Recent content in 千秋戲 on Kira&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 12 Mar 2020 18:52:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://kira5033.github.io/tags/%E5%8D%83%E7%A7%8B%E6%88%B2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>古劍奇譚千秋戲模擬器</title>
+      <link>https://kira5033.github.io/2020/03/%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/</link>
+      <pubDate>Thu, 12 Mar 2020 18:52:09 +0800</pubDate>
+      
+      <guid>https://kira5033.github.io/2020/03/%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/</guid>
+      <description>&lt;p&gt;最近玩了古劍奇譚過程中接觸到了千秋戲，覺得蠻有趣的，主要玩法是依照相關的人物做出不同的牌型組合並得到不同分數，對於新手沒接觸過古劍系列的玩家相對苦手，自己最近也剛好學習&lt;strong&gt;Vue.js&lt;/strong&gt;，趁這個機會來練個手。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
