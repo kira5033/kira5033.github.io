@@ -4,25 +4,42 @@
   
   <url>
     <loc>https://kira5033.github.io/categories/</loc>
-    <lastmod>2020-03-12T18:52:09+08:00</lastmod>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kira5033.github.io/</loc>
-    <lastmod>2020-03-12T18:52:09+08:00</lastmod>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kira5033.github.io/post/</loc>
-    <lastmod>2020-03-12T18:52:09+08:00</lastmod>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kira5033.github.io/tags/</loc>
-    <lastmod>2020-03-12T18:52:09+08:00</lastmod>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kira5033.github.io/2020/05/%E7%A2%A7%E7%AD%B5%E7%B6%B0%E5%9C%A8%E5%BE%AE%E8%BB%9F%E6%AD%A3%E9%BB%91%E9%AB%94%E5%95%8F%E9%A1%8C/</loc>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kira5033.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kira5033.github.io/tags/%E5%BE%AE%E8%BB%9F%E6%AD%A3%E9%BB%91%E9%AB%94/</loc>
+    <lastmod>2020-05-27T14:11:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -51,12 +68,6 @@
   
   <url>
     <loc>https://kira5033.github.io/tags/heroku/</loc>
-    <lastmod>2020-03-09T21:29:53+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kira5033.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2020-03-09T21:29:53+08:00</lastmod>
     <priority>0</priority>
   </url>
