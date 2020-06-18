@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
-<meta name="keywords" content="">
+<meta name="keywords" content="php, line">
 <meta name="description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
 
 
@@ -31,14 +31,12 @@
   
   
     
-      <meta property="article:section" content="第三方服務">
+      <meta property="article:section" content="技術筆記">
     
   
   
     
-      <meta property="article:tag" content="php">
-    
-      <meta property="article:tag" content="line">
+      <meta property="article:tag" content="PHP">
     
   
 
@@ -99,7 +97,7 @@ if (!doNotTrack) {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://kira5033.github.io/">Lin輕手札</a>
@@ -119,7 +117,7 @@ if (!doNotTrack) {
   
 </header>
 
-      <nav id="sidebar" data-behavior="4">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -209,7 +207,7 @@ if (!doNotTrack) {
 
       
 
-      <div id="main" data-behavior="4"
+      <div id="main" data-behavior="5"
         class="
                hasCoverMetaIn
                ">
@@ -236,7 +234,7 @@ if (!doNotTrack) {
   
     <span>分類</span>
     
-      <a class="category-link" href="https://kira5033.github.io/categories/%e7%ac%ac%e4%b8%89%e6%96%b9%e6%9c%8d%e5%8b%99">第三方服務</a>
+      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e7%ad%86%e8%a8%98">技術筆記</a>
     
   
 
@@ -265,23 +263,49 @@ if (!doNotTrack) {
 
 <p>這時我們有了Token就可以發送訊息，以下我以php做簡易示範</p>
 
-<pre><code>&lt;?php
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight php language-php">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-php"><code class="php">&lt;?php
 $headers = array(
-    'Content-Type: multipart/form-data',
-    'Authorization: Bearer 你的Token'
+    &#39;Content-Type: multipart/form-data&#39;,
+    &#39;Authorization: Bearer 你的Token&#39;
 );
 $message = array(
-    'message' =&gt; 'Hello,Kira~'
+    &#39;message&#39; =&gt; &#39;Hello,Kira~&#39;
 );
 $ch = curl_init();
-curl_setopt($ch , CURLOPT_URL , &quot;https://notify-api.line.me/api/notify&quot;);
+curl_setopt($ch , CURLOPT_URL , &#34;https://notify-api.line.me/api/notify&#34;);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
 $result = curl_exec($ch);
 curl_close($ch);
-?&gt;
-</code></pre>
+?&gt;</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
 
 <p>回到我們的LINE就會看到剛發出的訊息</p>
 
@@ -303,9 +327,7 @@ curl_close($ch);
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">php</a>
-
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/line/">line</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">PHP</a>
 
                   </div>
                 
@@ -396,7 +418,7 @@ curl_close($ch);
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
         <div class="post-actions-wrap">
   
       <nav >
@@ -467,7 +489,7 @@ curl_close($ch);
 </div>
 
       </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
@@ -680,7 +702,7 @@ curl_close($ch);
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，目前我的架設環境是MacOS。</p></div>
+架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，而我的操作環境是MacOS。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
