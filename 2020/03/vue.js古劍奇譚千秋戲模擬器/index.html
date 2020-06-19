@@ -7,20 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
-<meta name="keywords" content="">
-<meta name="description" content="工具紀錄及雜記">
+<meta name="keywords" content="古劍奇譚, 千秋戲, vue.js">
+<meta name="description" content="最近在玩古劍奇譚過程中接觸到千秋戲，個人覺得蠻有趣的，主要玩法是依照相關的人物做出不同的牌型組合並得到分數，對於沒接觸過古劍系列的新手玩家相對苦手，自己最近也剛好學習Vue.js，趁這個機會來練個手。">
 
 
-<meta property="og:description" content="工具紀錄及雜記">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hugo">
-<meta name="twitter:title" content="hugo">
-<meta property="og:url" content="https://kira5033.github.io/tags/hugo/">
-<meta property="twitter:url" content="https://kira5033.github.io/tags/hugo/">
+<meta property="og:description" content="最近在玩古劍奇譚過程中接觸到千秋戲，個人覺得蠻有趣的，主要玩法是依照相關的人物做出不同的牌型組合並得到分數，對於沒接觸過古劍系列的新手玩家相對苦手，自己最近也剛好學習Vue.js，趁這個機會來練個手。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Vue.js]古劍奇譚千秋戲模擬器">
+<meta name="twitter:title" content="[Vue.js]古劍奇譚千秋戲模擬器">
+<meta property="og:url" content="https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+<meta property="twitter:url" content="https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
 <meta property="og:site_name" content="Lin輕手札">
-<meta property="og:description" content="工具紀錄及雜記">
-<meta name="twitter:description" content="工具紀錄及雜記">
+<meta property="og:description" content="最近在玩古劍奇譚過程中接觸到千秋戲，個人覺得蠻有趣的，主要玩法是依照相關的人物做出不同的牌型組合並得到分數，對於沒接觸過古劍系列的新手玩家相對苦手，自己最近也剛好學習Vue.js，趁這個機會來練個手。">
+<meta name="twitter:description" content="最近在玩古劍奇譚過程中接觸到千秋戲，個人覺得蠻有趣的，主要玩法是依照相關的人物做出不同的牌型組合並得到分數，對於沒接觸過古劍系列的新手玩家相對苦手，自己最近也剛好學習Vue.js，趁這個機會來練個手。">
 <meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2020-03-12T18:52:09">
+  
+  
+    <meta property="article:modified_time" content="2020-03-12T18:52:09">
+  
+  
+  
+    
+      <meta property="article:section" content="個人專案">
+    
+  
+  
+    
+      <meta property="article:tag" content="Vue.js">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -39,18 +57,16 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>hugo - Lin輕手札
+    <title>[Vue.js]古劍奇譚千秋戲模擬器 - Lin輕手札
       
     </title>
 
     <link rel="icon" href="https://kira5033.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://kira5033.github.io/tags/hugo/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/tags/hugo/">
+    <link rel="canonical" href="https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -83,7 +99,7 @@ if (!doNotTrack) {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://kira5033.github.io/">Lin輕手札</a>
@@ -103,7 +119,7 @@ if (!doNotTrack) {
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -192,44 +208,26 @@ if (!doNotTrack) {
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="2"
+      <div id="main" data-behavior="5"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      [Vue.js]古劍奇譚千秋戲模擬器
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/">
-          使用Github部署Hugo靜態網站
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-05-27T11:49:40&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-03-12T18:52:09&#43;08:00">
         
-  五月 27, 2019
+  三月 12, 2020
 
       </time>
     
@@ -238,32 +236,149 @@ if (!doNotTrack) {
   
     <span>分類</span>
     
-      <a class="category-link" href="https://kira5033.github.io/categories/%e7%92%b0%e5%a2%83%e9%83%a8%e7%bd%b2">環境部署</a>
+      <a class="category-link" href="https://kira5033.github.io/categories/%e5%80%8b%e4%ba%ba%e5%b0%88%e6%a1%88">個人專案</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>目前使用Hugo架站覺得簡單又快速，只要你會一些command及git操作，就可以把網站架起來，<br />
-架站過程相較於Hexo及Jekyll，它所需的安裝套件是比較少的，而我的操作環境是MacOS。</p>
-      
-      <p>
-        <a href="https://kira5033.github.io/2019/05/%E4%BD%BF%E7%94%A8github%E9%83%A8%E7%BD%B2hugo%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99/" class="postShorten-excerpt_link link">繼續閱讀</a>
-        
-      </p>
-    </div>
-  </div>
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>最近在玩古劍奇譚過程中接觸到千秋戲，個人覺得蠻有趣的，主要玩法是依照相關的人物做出不同的牌型組合並得到分數，對於沒接觸過古劍系列的新手玩家相對苦手，自己最近也剛好學習<strong>Vue.js</strong>，趁這個機會來練個手。</p>
+
+<p><img src="https://images2.imgbox.com/29/8d/bnfzPYGB_o.png" alt="imgbox"/></p>
+
+<h2 id="功能介紹">功能介紹</h2>
+
+<h3 id="1-卡牌搜尋欄">1. 卡牌搜尋欄</h3>
+
+<p>搜尋內容都是以卡牌正理中文名稱做基礎<br />
+<img src="https://images2.imgbox.com/5b/0c/Zk0m3AvZ_o.png" alt="imgbox"/></p>
+
+<h3 id="2-卡牌分類篩選">2. 卡牌分類篩選</h3>
+
+<p>目前依照 春、夏、秋、冬 這四項做分類，直接點擊打勾即可<br />
+<img src="https://images2.imgbox.com/05/b1/5xuNdadl_o.png" alt="imgbox"/></p>
+
+<h3 id="3-左側卡牌快速搜尋">3. 左側卡牌快速搜尋</h3>
+
+<p>左側的卡牌名稱皆可以點擊，可以自動輸入到搜尋欄來做快速查詢<br />
+<img src="https://images2.imgbox.com/d0/f8/4DEcr4Yk_o.png" alt="imgbox"/></p>
+
+<h3 id="4-即時分數計算">4. 即時分數計算</h3>
+
+<p>分數顯示在最上方的中間</p>
+
+<h3 id="5-自動顯示即將達成的牌組">5. 自動顯示即將達成的牌組</h3>
+
+<p>左側牌組列表會自動提示玩家最快達成的組合，越快達成的牌組將會自動上推<br />
+<img src="https://images2.imgbox.com/52/7d/LcZAHXLe_o.png" alt="imgbox"/></p>
+
+<h2 id="最後">最後</h2>
+
+<p>這項小專案是3月5號時開的，花了差不多一個禮拜就做完也是蠻驚訝的，實際敲code時間不長，不過主因也是這套小遊戲的規則並不複雜，讓我比較好發揮，對於Vuex也熟悉了一些，以及computed、methods、mounted這些處理，算是第一個自己的side project，覺得有趣也有得到一點小成就感。</p>
+
+<p><a href="https://kira5033.github.io/gujian-card/" target="_blank">前往千秋戲模擬器</a></p>
+
+<p>牌組文檔來源：<a href="https://forum.gamer.com.tw/C.php?bsn=19552&snA=712" target="_blank">【攻略】千秋戲快速查詢手冊</a><br />
+圖片來源：<a href="http://xgodgame.blogspot.com/2019/01/83.html" target="_blank">古劍奇譚三：千秋戲全129種牌面一覽（2019/4/12新增3代卡牌，注意劇透</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/vue.js/">Vue.js</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
   
-</article>
-
-            
-            
-
-          </section>
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/05/%E7%A2%A7%E7%AD%B5%E7%B6%B0%E5%9C%A8%E5%BE%AE%E8%BB%9F%E6%AD%A3%E9%BB%91%E9%AB%94%E5%95%8F%E9%A1%8C/" data-tooltip="「碧」「筵」「綰」在微軟正黑體問題">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/" data-tooltip="利用Heroku快速部署PHP專案">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2020 Lin Kira. All Rights Reserved
@@ -271,6 +386,102 @@ if (!doNotTrack) {
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/05/%E7%A2%A7%E7%AD%B5%E7%B6%B0%E5%9C%A8%E5%BE%AE%E8%BB%9F%E6%AD%A3%E9%BB%91%E9%AB%94%E5%95%8F%E9%A1%8C/" data-tooltip="「碧」「筵」「綰」在微軟正黑體問題">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/" data-tooltip="利用Heroku快速部署PHP專案">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/03/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2Fvue.js%25E5%258F%25A4%25E5%258A%258D%25E5%25A5%2587%25E8%25AD%259A%25E5%258D%2583%25E7%25A7%258B%25E6%2588%25B2%25E6%25A8%25A1%25E6%2593%25AC%25E5%2599%25A8%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2Fvue.js%25E5%258F%25A4%25E5%258A%258D%25E5%25A5%2587%25E8%25AD%259A%25E5%258D%2583%25E7%25A7%258B%25E6%2588%25B2%25E6%25A8%25A1%25E6%2593%25AC%25E5%2599%25A8%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2Fvue.js%25E5%258F%25A4%25E5%258A%258D%25E5%25A5%2587%25E8%25AD%259A%25E5%258D%2583%25E7%25A7%258B%25E6%2588%25B2%25E6%25A8%25A1%25E6%2593%25AC%25E5%2599%25A8%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -519,6 +730,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/kira5033.github.io\/2020\/03\/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8\/';
+          
+            this.page.identifier = '\/2020\/03\/vue.js%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'kira5033';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 
