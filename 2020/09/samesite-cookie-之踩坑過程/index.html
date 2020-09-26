@@ -7,36 +7,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
-<meta name="keywords" content="php, heroku">
-<meta name="description" content="前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，然而，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
+<meta name="keywords" content="SameSite, cookie">
+<meta name="description" content="個人對於SameSite這詞早有耳聞，但對於當時還沒意識到這個更新多麽要命，直到最近開始有客戶反應金流回傳後造成登出的案例頻傳，我開始重新審視這個問題。">
 
 
-<meta property="og:description" content="前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，然而，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
+<meta property="og:description" content="個人對於SameSite這詞早有耳聞，但對於當時還沒意識到這個更新多麽要命，直到最近開始有客戶反應金流回傳後造成登出的案例頻傳，我開始重新審視這個問題。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Heroku快速部署PHP專案">
-<meta name="twitter:title" content="利用Heroku快速部署PHP專案">
-<meta property="og:url" content="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
-<meta property="twitter:url" content="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+<meta property="og:title" content="SameSite Cookie 之踩坑過程">
+<meta name="twitter:title" content="SameSite Cookie 之踩坑過程">
+<meta property="og:url" content="https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
+<meta property="twitter:url" content="https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
 <meta property="og:site_name" content="Lin輕手札">
-<meta property="og:description" content="前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，然而，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
-<meta name="twitter:description" content="前端Javascript有Github page可以做Demo，但後端語言像是PHP、Python就需要環境才可以執行，但是又想當免費仔不花錢租機器，然而，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。">
+<meta property="og:description" content="個人對於SameSite這詞早有耳聞，但對於當時還沒意識到這個更新多麽要命，直到最近開始有客戶反應金流回傳後造成登出的案例頻傳，我開始重新審視這個問題。">
+<meta name="twitter:description" content="個人對於SameSite這詞早有耳聞，但對於當時還沒意識到這個更新多麽要命，直到最近開始有客戶反應金流回傳後造成登出的案例頻傳，我開始重新審視這個問題。">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2020-03-09T21:29:53">
+    <meta property="article:published_time" content="2020-09-26T17:33:33">
   
   
-    <meta property="article:modified_time" content="2020-03-09T21:29:53">
+    <meta property="article:modified_time" content="2020-09-26T17:33:33">
   
-  
-  
-    
-      <meta property="article:section" content="環境部署">
-    
   
   
     
-      <meta property="article:tag" content="Heroku">
+      <meta property="article:section" content="技術筆記">
+    
+  
+  
+    
+      <meta property="article:tag" content="SameSite">
     
   
 
@@ -57,7 +57,7 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>利用Heroku快速部署PHP專案 - Lin輕手札
+    <title>SameSite Cookie 之踩坑過程 - Lin輕手札
       
     </title>
 
@@ -66,7 +66,7 @@
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+    <link rel="canonical" href="https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,15 +219,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      利用Heroku快速部署PHP專案
+      SameSite Cookie 之踩坑過程
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-03-09T21:29:53&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-09-26T17:33:33&#43;08:00">
         
-  三月 9, 2020
+  九月 26, 2020
 
       </time>
     
@@ -236,7 +236,7 @@ if (!doNotTrack) {
   
     <span>分類</span>
     
-      <a class="category-link" href="https://kira5033.github.io/categories/%e7%92%b0%e5%a2%83%e9%83%a8%e7%bd%b2">環境部署</a>
+      <a class="category-link" href="https://kira5033.github.io/categories/%e6%8a%80%e8%a1%93%e7%ad%86%e8%a8%98">技術筆記</a>
     
   
 
@@ -246,76 +246,129 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>前端<strong>Javascript</strong>有Github page可以做Demo，但後端語言像是<strong>PHP</strong>、<strong>Python</strong>就需要環境才可以執行，但是又想當免費仔不花錢租機器，然而，前陣子在做Line Bot時就有聽聞Heroku可以免費部署，最近有閒想把Line Bot的webhook掛到別的地方去，趁這次來使用看看。</p>
+              <p>個人對於SameSite這詞早有耳聞，但對於當時還沒意識到這個更新多麽要命，直到最近開始有客戶反應金流回傳後造成登出的案例頻傳，我開始重新審視這個問題。</p>
 
-<p><a href="https://www.heroku.com/" traget="_blank">Heroku官網</a>
-既然是當免費仔，我們先來關心一下付費的差異</p>
-
-<p><img src="https://images2.imgbox.com/2e/77/GHjyP3Uf_o.png" alt="image host"/></p>
-
-<p>基本上，單純做個Demo版，記憶體512MB就很夠用了，比較值得注意的是機器在30分內無任何活動將會自動休眠的機制，以我自己測試來看，回應時間大概2-3秒左右，對我來說是還可以接受的。</p>
-
-<p><img src="https://images2.imgbox.com/a6/45/kNhbD9In_o.png" alt="image host"/></p>
-
-<p>還有一點就是，免費的機器有他的使用時數，根據圖上的說法，每個月都有<span style="color:red">550小時</span>的使用時數，以一個開發、Demo用的機器來看，夫復何求啊。</p>
-
-<p>好了，就此進入正題吧！</p>
+<p>在客戶反應後我開始反覆測試了一下，發現出去金流前的session id為AAA，接著跳轉回來時，最終看到的session id反而變成BBB，在我燒腦時看到一篇文章直接點醒我。
+<br></p>
 
 <blockquote>
-<p>使用Heroku前記得要安裝git，專案部署還是以它為主</p>
+<p>SameSite 機制啟用之後，或說使用已啟用 SameSite 功能的瀏覽器使用者，在跳轉到金流網站或超取電子地圖網站，再跳轉回 OpenCart 網站時，因為這些跳轉通常是使用 POST 呼叫以便傳遞資訊回 OpenCart 網站，例如傳遞付款交易結果、或是傳遞所選取的超商門市資料，而這個 POST 跳轉剛好符合 SameSite 機制的管制條件，於是，這些跨站跳轉將不會把 cookie 資料傳送到 OpenCart，使得 OpenCart 讀不到你的 OCSESSID，判定你是新的訪客，並建立一組全新的 Session 資料給你，讓你得到一組新的 Session ID，並記錄到你的 Cookie ，覆蓋掉原有的 Session 及 Cookie 資料。
+擷取於<a href='https://24cc.com/349/chrome-80-samesite-cookie-%E5%B0%8D-opencart-%E7%B6%B2%E7%AB%99%E7%9A%84%E5%BD%B1%E9%9F%BF/'>Chrome 80 SameSite Cookie 對 OpenCart 網站的影響</a></p>
 </blockquote>
 
-<h2 id="step-1-註冊">Step 1 - 註冊</h2>
+<p><img src="https://images2.imgbox.com/34/ac/QR43Pfhy_o.gif" alt="image host"/></p>
 
-<p>註冊帳號以及新增你的測試機<br />
-<img src="https://images2.imgbox.com/62/26/6Sc8lgdo_o.png" alt="image host"/></p>
+<p>到這裡，我就開始往SameSite繼續查下去<br />
+這裡我先提供我研究過程的參考資料，這邊就不多做SameSite介紹</p>
 
-<h2 id="step-2-安裝heroku-cli">Step 2 - 安裝Heroku CLI</h2>
+<ul>
+<li><p><a href='https://medium.com/@azure820529/chrome-80-%E5%BE%8C%E9%87%9D%E5%B0%8D%E7%AC%AC%E4%B8%89%E6%96%B9-cookie-%E7%9A%84%E8%A6%8F%E5%89%87%E8%AA%BF%E6%95%B4-default-samesite-lax-aaba0bc785a3' target='_blank'>Chrome 80 後針對第三方 Cookie 的規則調整 (default SameSite=Lax)</a></p></li>
 
-<p>安裝Heroku的CLI，部署必備，可使用<code>heroku -v</code>檢查是否安裝成功</p>
+<li><p><a href='https://medium.com/it-digital-%E4%BA%92%E8%81%AF%E7%B6%B2/%E4%BB%80%E9%BA%BC-samesite-cookies-policy-%E6%9B%B4%E6%96%B0%E4%BA%86-2b317e6cf6bb' target='_blank'>什麼!? SameSite Cookies Policy 更新了— Chrome SameSite Attribute 簡介</a></p></li>
+</ul>
 
-<p><img src="https://images2.imgbox.com/b1/2d/UEPjyvBh_o.png" alt="image host"/></p>
+<p>SameSite這項機制其實早已行之有年，直到<a href='https://blog.chromium.org/2019/10/developers-get-ready-for-new.html' target='_blank'>Chromium開發日記</a>發佈了重大消息，在Chrome 80之後所有的SameSite機制從None改成Lax，如果需要改成None的話，則必須開啟Secure的選項，這樣站台必須要走https。</p>
 
-<h2 id="step-3-建立資料夾-登入">Step 3 - 建立資料夾＆登入</h2>
+<p>cross-site對於cookie發送示意表</p>
 
-<p>建立一個資料夾並cd進去，接著登入Heroku</p>
+<table>
+<thead>
+<tr>
+<th align="center">Method/Mode</th>
+<th align="center">Strict</th>
+<th align="center">Lax</th>
+<th align="center">None</th>
+</tr>
+</thead>
 
-<pre><code># 依照指示登入
-sudo heroku login  
-(heroku: Press any key to open up the browser to login or q to exit)
+<tbody>
+<tr>
+<td align="center">POST</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">O</td>
+</tr>
+
+<tr>
+<td align="center">GET</td>
+<td align="center">X</td>
+<td align="center">O</td>
+<td align="center">O</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>GET這塊包含 a link以及JS的 loaction 跳轉和 window.open</p>
+</blockquote>
+
+<p>由次表得知，大多數第三方串接回傳時都是使用POST回傳，在這樣的狀況下，會導致我們的session cookie遺失，所以我整理出兩個SameSite調整方法，在這邊做個筆記。</p>
+
+<h2 id="方法一-apache端">方法一 Apache端</h2>
+
+<p>以php為例，打開php.ini來做點環境調整</p>
+
+<pre><code>session.cookie_secure = 1
+session.cookie_path = &quot;/; samesite=none&quot;
+
+# 額外補充httponly可以防止Javascript從外部存取cookie，可以防止XSS攻擊
+session.cookie_httponly = 1  
 </code></pre>
 
-<p><img src="https://images2.imgbox.com/ef/be/1eTfeOn0_o.png" alt="image host"/><br />
-大膽地按下Login～</p>
+<p>存檔後重啟Apache即可</p>
 
-<p><img src="https://images2.imgbox.com/f7/b4/9P4DlznC_o.png" alt="image host"/><br />
-回到Terminal就會看到成功登入的畫面</p>
+<h2 id="方法二-web端">方法二 Web端</h2>
 
-<h2 id="step-4-開始部署">Step 4 - 開始部署</h2>
+<p>由於第一個方法是主機上所有站台都會限制於這個設定，礙於可能有站台沒有https的問題，我們就必須獨立修改，這樣我們必須從網站的session起始位置調整，我們直接強制讓cookie都吃這樣的samesite設定。</p>
 
-<p>登入Heroku並進行部署</p>
-
-<pre><code># 新增composer.json
-touch composer.json  
-
-# 開始部署
-git init  
-sudo heroku git:remote -a 專案名稱  
-git add .  
-git commit -m 'deploy'  
-git push heroku master
+<pre><code>if (empty($_COOKIE[$session_name])) {
+    session_set_cookie_params(3600,'/; samesite=none','',true,true);
+    session_name($session_name);
+    session_start();
+} else {
+    session_name($session_name);
+    session_start();
+    setcookie($session_name, session_id(), time() + 3600,'/; samesite=none','',true,true);
+}
 </code></pre>
 
-<p>最後push時有遇到個小問題，就是要輸入git的帳號資訊，這裡我試了很久都失敗，最後在使用者根目錄下找到 <code>.netrc</code> 這個檔案，發現裡面會有heroku及git的帳號資訊，這樣就成功push了</p>
+<p><br>
+上線時檢查自己的session cookie是有設定完成，httpOnly及Secure必須打勾，還有SameSite是否有掛上None，這時候再去嘗試第三方回來之後就一切正常囉。
+<br>
+<br>
+<img src="https://images2.imgbox.com/a4/aa/egVI7Hnj_o.png" alt="samesite cookie"/><br />
+<br>
+<br>
+到這裡，我們漫長旅途終於要結束了～</p>
 
-<p><img src="https://images2.imgbox.com/0e/ef/vuyofYbm_o.png" alt="image host"/></p>
+<p>才怪！！！！
+<br>
+在這篇<a href='https://24cc.com/359/opencart-%e5%a6%82%e4%bd%95%e4%bf%ae%e6%ad%a3-samesite-%e5%95%8f%e9%a1%8c-%e4%bb%a5%e4%b8%b2%e6%8e%a5ezship%e7%82%ba%e4%be%8b/' target='_blank'>文章</a>有提到，我也認為頗有道理，Google提升了這樣的安全機制，但大多數是以修正回SameSite=None的方式，等於我們放棄了這個機制，在文中是使用Database加上token方式是比較好的方式，但不想開表做的人也可以加密session id，讓它出去旅行一趟回來，在接收回傳同時將session id設定回去。</p>
 
-<h2 id="step-5-最後檢查">Step 5 - 最後檢查</h2>
+<pre><code>&lt;?php
+# 回傳參數請自行定義
+if(isset($_GET[$field]) &amp;&amp; $_GET[$field] != ''){
+    $sessionId = decrypt($_GET[$field]);
+}
 
-<p>接著我們就來檢查看看有沒有部署成功囉
-網址連結：<code>https://專案名稱.herokuapp.com/</code></p>
+if($sessionId != '' &amp;&amp; session_id() != $sessionId){
+    session_destroy();
+    session_id($sessionId);
+    session_start();
+    setcookie('PHPSESSID', $sessionId);
+}
+</code></pre>
 
-<p><img src="https://images2.imgbox.com/43/d8/9QtRpfov_o.png" alt="image host"/></p>
+<p>雖然有些第三方都會保留參數讓串接方可以放值進去，我是建議以GET方式回傳最好，因為我們不確定每家第三方在失敗回傳後都會丟回這些參數，但如果設定在回傳網址就一定收的到。</p>
+
+<h3 id="參考資料">參考資料</h3>
+
+<ul>
+<li><a href='https://medium.com/@azure820529/chrome-80-%E5%BE%8C%E9%87%9D%E5%B0%8D%E7%AC%AC%E4%B8%89%E6%96%B9-cookie-%E7%9A%84%E8%A6%8F%E5%89%87%E8%AA%BF%E6%95%B4-default-samesite-lax-aaba0bc785a3' target='_blank'>Chrome 80 後針對第三方 Cookie 的規則調整 (default SameSite=Lax)</a></li>
+<li><a href='https://medium.com/it-digital-%E4%BA%92%E8%81%AF%E7%B6%B2/%E4%BB%80%E9%BA%BC-samesite-cookies-policy-%E6%9B%B4%E6%96%B0%E4%BA%86-2b317e6cf6bb' target='_blank'>什麼!? SameSite Cookies Policy 更新了— Chrome SameSite Attribute 簡介</a></li>
+<li><a href='https://24cc.com/349/chrome-80-samesite-cookie-%E5%B0%8D-opencart-%E7%B6%B2%E7%AB%99%E7%9A%84%E5%BD%B1%E9%9F%BF/'>Chrome 80 SameSite Cookie 對 OpenCart 網站的影響</a></li>
+<li><a href='https://24cc.com/359/opencart-%e5%a6%82%e4%bd%95%e4%bf%ae%e6%ad%a3-samesite-%e5%95%8f%e9%a1%8c-%e4%bb%a5%e4%b8%b2%e6%8e%a5ezship%e7%82%ba%e4%be%8b/'>OpenCart 如何修正 SameSite 問題(以串接ezShip為例)</a></li>
+</ul>
               
             </div>
           </div>
@@ -327,7 +380,7 @@ git push heroku master
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/heroku/">Heroku</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/samesite/">SameSite</a>
 
                   </div>
                 
@@ -340,7 +393,7 @@ git push heroku master
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/03/vue.js-%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/" data-tooltip="[Vue.js] 古劍奇譚千秋戲模擬器">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -348,7 +401,7 @@ git push heroku master
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/01/laravel-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/" data-tooltip="Laravel - 如何安裝Supervisor">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/06/php-%E5%A6%82%E4%BD%95%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E5%BC%B7%E5%88%B6%E4%B8%8B%E8%BC%89pdf%E6%AA%94%E6%A1%88/" data-tooltip="[PHP] 如何讓使用者強制下載PDF檔案">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -366,19 +419,19 @@ git push heroku master
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -426,7 +479,7 @@ git push heroku master
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/03/vue.js-%E5%8F%A4%E5%8A%8D%E5%A5%87%E8%AD%9A%E5%8D%83%E7%A7%8B%E6%88%B2%E6%A8%A1%E6%93%AC%E5%99%A8/" data-tooltip="[Vue.js] 古劍奇譚千秋戲模擬器">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -434,7 +487,7 @@ git push heroku master
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/01/laravel-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Dsupervisor/" data-tooltip="Laravel - 如何安裝Supervisor">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/06/php-%E5%A6%82%E4%BD%95%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E5%BC%B7%E5%88%B6%E4%B8%8B%E8%BC%89pdf%E6%AA%94%E6%A1%88/" data-tooltip="[PHP] 如何讓使用者強制下載PDF檔案">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -452,19 +505,19 @@ git push heroku master
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/03/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -494,19 +547,19 @@ git push heroku master
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2F%25E5%2588%25A9%25E7%2594%25A8heroku%25E5%25BF%25AB%25E9%2580%259F%25E9%2583%25A8%25E7%25BD%25B2php%25E5%25B0%2588%25E6%25A1%2588%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2020%2F09%2Fsamesite-cookie-%25E4%25B9%258B%25E8%25B8%25A9%25E5%259D%2591%25E9%2581%258E%25E7%25A8%258B%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2F%25E5%2588%25A9%25E7%2594%25A8heroku%25E5%25BF%25AB%25E9%2580%259F%25E9%2583%25A8%25E7%25BD%25B2php%25E5%25B0%2588%25E6%25A1%2588%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2020%2F09%2Fsamesite-cookie-%25E4%25B9%258B%25E8%25B8%25A9%25E5%259D%2591%25E9%2581%258E%25E7%25A8%258B%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2020%2F03%2F%25E5%2588%25A9%25E7%2594%25A8heroku%25E5%25BF%25AB%25E9%2580%259F%25E9%2583%25A8%25E7%25BD%25B2php%25E5%25B0%2588%25E6%25A1%2588%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2020%2F09%2Fsamesite-cookie-%25E4%25B9%258B%25E8%25B8%25A9%25E5%259D%2591%25E9%2581%258E%25E7%25A8%258B%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -802,9 +855,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2020\/03\/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2020\/09\/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B\/';
           
-            this.page.identifier = '\/2020\/03\/%E5%88%A9%E7%94%A8heroku%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2php%E5%B0%88%E6%A1%88\/'
+            this.page.identifier = '\/2020\/09\/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B\/'
           
         };
         (function() {
