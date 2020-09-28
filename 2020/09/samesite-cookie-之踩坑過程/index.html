@@ -248,28 +248,13 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>個人對於SameSite這詞早有耳聞，但對於當時還沒意識到這個更新多麽要命，直到最近開始有客戶反應金流回傳後造成登出的案例頻傳，我開始重新審視這個問題。</p>
 
-<p>在客戶反應後我開始反覆測試了一下，發現出去金流前的session id為AAA，接著跳轉回來時，最終看到的session id反而變成BBB，在我燒腦時看到一篇文章直接點醒我。
-<br></p>
-
-<blockquote>
-<p>SameSite 機制啟用之後，或說使用已啟用 SameSite 功能的瀏覽器使用者，在跳轉到金流網站或超取電子地圖網站，再跳轉回 OpenCart 網站時，因為這些跳轉通常是使用 POST 呼叫以便傳遞資訊回 OpenCart 網站，例如傳遞付款交易結果、或是傳遞所選取的超商門市資料，而這個 POST 跳轉剛好符合 SameSite 機制的管制條件，於是，這些跨站跳轉將不會把 cookie 資料傳送到 OpenCart，使得 OpenCart 讀不到你的 OCSESSID，判定你是新的訪客，並建立一組全新的 Session 資料給你，讓你得到一組新的 Session ID，並記錄到你的 Cookie ，覆蓋掉原有的 Session 及 Cookie 資料。
-擷取於<a href='https://24cc.com/349/chrome-80-samesite-cookie-%E5%B0%8D-opencart-%E7%B6%B2%E7%AB%99%E7%9A%84%E5%BD%B1%E9%9F%BF/'>Chrome 80 SameSite Cookie 對 OpenCart 網站的影響</a></p>
-</blockquote>
+<p>在客戶反應後我在測試過程中發現，在第三方服務回傳之後 session id 被更新了，想必是系統重新給一個新的，讓我苦惱於這個問題許久，果然這種事情絕對不是只有我會發生，在其他文章中提到 SameSite 機制，在 POST 回傳時因為這項機制讓 cookie 不會傳送回來，導致系統判定是新的使用者，並給予新的 session id。</p>
 
 <p><img src="https://images2.imgbox.com/34/ac/QR43Pfhy_o.gif" alt="image host"/></p>
 
-<p>到這裡，我就開始往SameSite繼續查下去<br />
-這裡我先提供我研究過程的參考資料，這邊就不多做SameSite介紹</p>
+<p>SameSite 機制其實早已行之有年，直到<a href='https://blog.chromium.org/2019/10/developers-get-ready-for-new.html' target='_blank'>Chromium開發日記</a>發佈了重大消息，在Chrome 80之後所有的 SameSite 機制從 None 改成 Lax ，如果需要改成 None 的話，則必須開啟 Secure 的選項，這樣站台必須要走 HTTPS ，至於 SameSite 內容這邊不多作說明，最下方參考內容有非常豐富的介紹。</p>
 
-<ul>
-<li><p><a href='https://medium.com/@azure820529/chrome-80-%E5%BE%8C%E9%87%9D%E5%B0%8D%E7%AC%AC%E4%B8%89%E6%96%B9-cookie-%E7%9A%84%E8%A6%8F%E5%89%87%E8%AA%BF%E6%95%B4-default-samesite-lax-aaba0bc785a3' target='_blank'>Chrome 80 後針對第三方 Cookie 的規則調整 (default SameSite=Lax)</a></p></li>
-
-<li><p><a href='https://medium.com/it-digital-%E4%BA%92%E8%81%AF%E7%B6%B2/%E4%BB%80%E9%BA%BC-samesite-cookies-policy-%E6%9B%B4%E6%96%B0%E4%BA%86-2b317e6cf6bb' target='_blank'>什麼!? SameSite Cookies Policy 更新了— Chrome SameSite Attribute 簡介</a></p></li>
-</ul>
-
-<p>SameSite這項機制其實早已行之有年，直到<a href='https://blog.chromium.org/2019/10/developers-get-ready-for-new.html' target='_blank'>Chromium開發日記</a>發佈了重大消息，在Chrome 80之後所有的SameSite機制從None改成Lax，如果需要改成None的話，則必須開啟Secure的選項，這樣站台必須要走https。</p>
-
-<p>cross-site對於cookie發送示意表</p>
+<p>cross-site 對於 cookie 發送示意表</p>
 
 <table>
 <thead>
@@ -299,19 +284,19 @@ if (!doNotTrack) {
 </table>
 
 <blockquote>
-<p>GET這塊包含 a link以及JS的 loaction 跳轉和 window.open</p>
+<p>GET這塊包含 a link以及JS的 location 跳轉和 window.open</p>
 </blockquote>
 
-<p>由次表得知，大多數第三方串接回傳時都是使用POST回傳，在這樣的狀況下，會導致我們的session cookie遺失，所以我整理出兩個SameSite調整方法，在這邊做個筆記。</p>
+<p>由次表得知，大多數第三方串接回傳時都是使用POST回傳，在這樣的狀況下，會導致我們的 session cookie 遺失，所以我整理出兩個 SameSite 調整方法，在這邊做個筆記。</p>
 
 <h2 id="方法一-apache端">方法一 Apache端</h2>
 
-<p>以php為例，打開php.ini來做點環境調整</p>
+<p>以 PHP 為例，打開 php.ini 來做點環境調整</p>
 
 <pre><code>session.cookie_secure = 1
 session.cookie_path = &quot;/; samesite=none&quot;
 
-# 額外補充httponly可以防止Javascript從外部存取cookie，可以防止XSS攻擊
+# 額外補充 httponly 可以防止 Javascript 從外部存取 cookie ，可以防止XSS攻擊
 session.cookie_httponly = 1  
 </code></pre>
 
@@ -319,7 +304,7 @@ session.cookie_httponly = 1
 
 <h2 id="方法二-web端">方法二 Web端</h2>
 
-<p>由於第一個方法是主機上所有站台都會限制於這個設定，礙於可能有站台沒有https的問題，我們就必須獨立修改，這樣我們必須從網站的session起始位置調整，我們直接強制讓cookie都吃這樣的samesite設定。</p>
+<p>由於第一個方法是主機上所有站台都會限制於這個設定，礙於可能有站台沒有https的問題，我們就必須獨立修改，這樣我們必須從網站的 session 起始位置調整，我們直接強制讓 cookie 都吃這樣的 SameSite 設定。</p>
 
 <pre><code>if (empty($_COOKIE[$session_name])) {
     session_set_cookie_params(3600,'/; samesite=none','',true,true);
@@ -333,7 +318,7 @@ session.cookie_httponly = 1
 </code></pre>
 
 <p><br>
-上線時檢查自己的session cookie是有設定完成，httpOnly及Secure必須打勾，還有SameSite是否有掛上None，這時候再去嘗試第三方回來之後就一切正常囉。
+上線時檢查自己的 session cookie 是有設定完成， httpOnly 及 Secure 必須打勾，還有 SameSite 是否有掛上 None ，這時候再去嘗試第三方回來之後就一切正常囉。
 <br>
 <br>
 <img src="https://images2.imgbox.com/a4/aa/egVI7Hnj_o.png" alt="samesite cookie"/><br />
@@ -343,7 +328,7 @@ session.cookie_httponly = 1
 
 <p>才怪！！！！
 <br>
-在這篇<a href='https://24cc.com/359/opencart-%e5%a6%82%e4%bd%95%e4%bf%ae%e6%ad%a3-samesite-%e5%95%8f%e9%a1%8c-%e4%bb%a5%e4%b8%b2%e6%8e%a5ezship%e7%82%ba%e4%be%8b/' target='_blank'>文章</a>有提到，我也認為頗有道理，Google提升了這樣的安全機制，但大多數是以修正回SameSite=None的方式，等於我們放棄了這個機制，在文中是使用Database加上token方式是比較好的方式，但不想開表做的人也可以加密session id，讓它出去旅行一趟回來，在接收回傳同時將session id設定回去。</p>
+在這篇<a href='https://24cc.com/359/opencart-%e5%a6%82%e4%bd%95%e4%bf%ae%e6%ad%a3-samesite-%e5%95%8f%e9%a1%8c-%e4%bb%a5%e4%b8%b2%e6%8e%a5ezship%e7%82%ba%e4%be%8b/' target='_blank'>文章</a>有提到，我也認為頗有道理， Google 提升了這樣的安全機制，但大多數是以修正回 SameSite=None 的方式，等於我們放棄了這個機制，在文中是使用 Database 加上 token 方式是比較好的方式，但不想開表做的人也可以加密 session id ，讓它出去旅行一趟回來，在接收回傳同時將 session id 設定回去。</p>
 
 <pre><code>&lt;?php
 # 回傳參數請自行定義
@@ -359,7 +344,7 @@ if($sessionId != '' &amp;&amp; session_id() != $sessionId){
 }
 </code></pre>
 
-<p>雖然有些第三方都會保留參數讓串接方可以放值進去，我是建議以GET方式回傳最好，因為我們不確定每家第三方在失敗回傳後都會丟回這些參數，但如果設定在回傳網址就一定收的到。</p>
+<p>雖然有些第三方都會保留參數讓串接方可以放值進去，我是建議以 GET 方式回傳最好，因為我們不確定每家第三方在失敗回傳後都會丟回這些參數，但如果設定在回傳網址就一定收的到。</p>
 
 <h3 id="參考資料">參考資料</h3>
 
