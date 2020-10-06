@@ -255,49 +255,19 @@ if (!doNotTrack) {
 
 <p>我們可以使用MIME Type中的<code>application/octet-stream</code>來達成文檔下載的效果</p>
 
-
-  
-    
-  
-  
-    
-  
-  
-  
-
-
-<figure class="highlight php language-php">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-php"><code class="php">&lt;?php
-
-$file = &#39;/path/yourfile&#39;;
+<pre><code class="language-php">$file = '/path/yourfile';
 $file_name = basename(yourfile);
 
-header(&#34;Expires: 0&#34;);
-header(&#34;Cache-Control: no-cache, no-store, must-revalidate&#34;);
-header(&#39;Cache-Control: pre-check=0, post-check=0, max-age=0&#39;, false);
-header(&#34;Pragma: no-cache&#34;);
-header(&#34;Content-type: application/octet-stream&#34;);
-header(&#34;Content-Disposition: attachment; filename={$file_name}&#34;);
-header(&#39;Content-Length: &#39; . filesize($file));
+header(&quot;Expires: 0&quot;);
+header(&quot;Cache-Control: no-cache, no-store, must-revalidate&quot;);
+header('Cache-Control: pre-check=0, post-check=0, max-age=0', false);
+header(&quot;Pragma: no-cache&quot;);
+header(&quot;Content-type: application/octet-stream&quot;);
+header(&quot;Content-Disposition: attachment; filename={$file_name}&quot;);
+header('Content-Length: ' . filesize($file));
 
-readfile(&#34;{$file}&#34;);
-
-?&gt;</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
+readfile(&quot;{$file}&quot;);
+</code></pre>
 
 <p>既然是用header做檔案下載，那勢必要有引導頁面做這個工作，開頭說到想讓使用者下載也是有個原因，大家都知道下載檔案只要將檔案路徑放進連結，點擊時就可以下載</p>
 

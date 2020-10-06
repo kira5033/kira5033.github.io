@@ -306,7 +306,7 @@ session.cookie_httponly = 1
 
 <p>由於第一個方法是主機上所有站台都會限制於這個設定，礙於可能有站台沒有https的問題，我們就必須獨立修改，這樣我們必須從網站的 session 起始位置調整，我們直接強制讓 cookie 都吃這樣的 SameSite 設定。</p>
 
-<pre><code>if (empty($_COOKIE[$session_name])) {
+<pre><code class="language-php">if (empty($_COOKIE[$session_name])) {
     session_set_cookie_params(3600,'/; samesite=none','',true,true);
     session_name($session_name);
     session_start();
@@ -330,8 +330,7 @@ session.cookie_httponly = 1
 <br>
 在這篇<a href='https://24cc.com/359/opencart-%e5%a6%82%e4%bd%95%e4%bf%ae%e6%ad%a3-samesite-%e5%95%8f%e9%a1%8c-%e4%bb%a5%e4%b8%b2%e6%8e%a5ezship%e7%82%ba%e4%be%8b/' target='_blank'>文章</a>有提到，我也認為頗有道理， Google 提升了這樣的安全機制，但大多數是以修正回 SameSite=None 的方式，等於我們放棄了這個機制，在文中是使用 Database 加上 token 方式是比較好的方式，但不想開表做的人也可以加密 session id ，讓它出去旅行一趟回來，在接收回傳同時將 session id 設定回去。</p>
 
-<pre><code>&lt;?php
-# 回傳參數請自行定義
+<pre><code class="language-php"># 回傳參數請自行定義
 if(isset($_GET[$field]) &amp;&amp; $_GET[$field] != ''){
     $sessionId = decrypt($_GET[$field]);
 }
