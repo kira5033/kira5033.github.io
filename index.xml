@@ -6,10 +6,19 @@
     <description>Recent content on Lin輕手札</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 26 Sep 2020 17:33:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Mar 2021 12:57:40 +0800</lastBuildDate>
     
 	<atom:link href="https://kira5033.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>解決Laravel Faker生成圖片失效</title>
+      <link>https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/</link>
+      <pubDate>Thu, 11 Mar 2021 12:57:40 +0800</pubDate>
+      
+      <guid>https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/</guid>
+      <description>&lt;p&gt;明明寫了要產生image圖檔，怎麼會沒有圖片呢？&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>SameSite Cookie 之踩坑過程</title>

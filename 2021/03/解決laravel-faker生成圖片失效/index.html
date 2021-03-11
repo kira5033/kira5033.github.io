@@ -7,26 +7,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Lin Kira">
-<meta name="keywords" content="php, line">
-<meta name="description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta name="keywords" content="Faker, Laravel, Image">
+<meta name="description" content="明明寫了要產生image圖檔，怎麼會沒有圖片呢？">
 
 
-<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:description" content="明明寫了要產生image圖檔，怎麼會沒有圖片呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[PHP] 簡易串接Line Notify">
-<meta name="twitter:title" content="[PHP] 簡易串接Line Notify">
-<meta property="og:url" content="https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
-<meta property="twitter:url" content="https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+<meta property="og:title" content="解決Laravel Faker生成圖片失效">
+<meta name="twitter:title" content="解決Laravel Faker生成圖片失效">
+<meta property="og:url" content="https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
+<meta property="twitter:url" content="https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
 <meta property="og:site_name" content="Lin輕手札">
-<meta property="og:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
-<meta name="twitter:description" content="使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果">
+<meta property="og:description" content="明明寫了要產生image圖檔，怎麼會沒有圖片呢？">
+<meta name="twitter:description" content="明明寫了要產生image圖檔，怎麼會沒有圖片呢？">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2019-06-14T18:51:26">
+    <meta property="article:published_time" content="2021-03-11T12:57:40">
   
   
-    <meta property="article:modified_time" content="2019-06-14T18:51:26">
+    <meta property="article:modified_time" content="2021-03-11T12:57:40">
   
   
   
@@ -36,7 +36,9 @@
   
   
     
-      <meta property="article:tag" content="PHP">
+      <meta property="article:tag" content="php">
+    
+      <meta property="article:tag" content="laravel">
     
   
 
@@ -57,7 +59,7 @@
   <meta property="twitter:image" content="https://kira5033.github.io/images/logo.jpg">
 
 
-    <title>[PHP] 簡易串接Line Notify - Lin輕手札
+    <title>解決Laravel Faker生成圖片失效 - Lin輕手札
       
     </title>
 
@@ -66,7 +68,7 @@
 
     
 
-    <link rel="canonical" href="https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+    <link rel="canonical" href="https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,15 +221,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      [PHP] 簡易串接Line Notify
+      解決Laravel Faker生成圖片失效
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-06-14T18:51:26&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-03-11T12:57:40&#43;08:00">
         
-  六月 14, 2019
+  三月 11, 2021
 
       </time>
     
@@ -246,78 +248,64 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>使用Line Notify的好處是免費的，但沒辦法與使用者做雙向交流，不過我認為這樣也是很夠用，依照大家各自需求可自行製作排程，也是可以達到不錯到效果</p>
+              <p>明明寫了要產生image圖檔，怎麼會沒有圖片呢？</p>
+
+<p>簡單的說，此<a href="https://github.com/fzaninotto/Faker" target="_blank">套件</a>所使用的圖片來源是<a href="https://lorempixel.com/">Lorempixel</a>慢到不知道是不是掛了，導致他在抓取圖片時都會失敗，可惜套件作者已經封存此專案，詳細內容可以看他的<a href="https://marmelab.com/blog/2020/10/21/sunsetting-faker.html">文章</a>，我們只好從套件上去做修改，而我使用的圖片來源是<a href="https://picsum.photos/">Lorem Picsum</a>。</p>
+
+<p>因為這個套件不是網站的主要功能，所以直接更改vendor是沒問題的，在正式站install也不用特地去做調整，除非你要在正式站產出假資料。</p>
+
+<p>我們以最後release的版本為例<br />
+<a href="https://github.com/fzaninotto/Faker/blob/v1.9.2/src/Faker/Provider/Image.php">vendor/fzaninotto/faker/src/Provider/Image.php</a></p>
+
+<p>在這邊會看到<code>function image</code>是中也會使用<code>function imageUrl</code>，所以我們只要修改<code>imageUrl</code>，由於Lorem Picsum只有指定圖片沒有圖片分類，所以<code>category</code>及<code>word</code>可以關掉，如果要使用種子碼抓圖片的話，可以抽換<code>randomize</code>成字串，記得連同<code>function image</code>一起抽換。</p>
 
 <blockquote>
-<p>操作前提記得先將LINE Notify加入你的好友</p>
+<p>相同種子碼只會對應一張照片</p>
 </blockquote>
 
-<h3 id="step-1">Step 1</h3>
+<pre><code class="language-php">&lt;?php
+    public static function imageUrl($width = 640, $height = 480, $category = null, $randomize = '', $word = null, $gray = false)
+    {
+        // 將原本 https://lorempixel.com/ 替換成 https://picsum.photos/
+        $baseUrl = &quot;https://picsum.photos/&quot;;
+        $url = &quot;{$width}/{$height}/&quot;;
+        
+        if($randomize){
+            $url = &quot;seed/&quot; . $randomize . &quot;/&quot;;
+        }
 
-<p>請先登入<a href="https://notify-bot.line.me/zh_TW/">LINE Notify</a></p>
+        // 灰階圖片則這樣修改
+        if ($gray) {
+            $url = $url . &quot;?grayscale&quot;;
+        }
 
-<h3 id="step-2">Step 2</h3>
+        return $baseUrl . $url;
+    }
+</code></pre>
 
-<p>使用發行權杖取得Token並記下來，它只會顯示一次<br />
-<img src="https://images2.imgbox.com/13/ef/G3BKwTyx_o.png" alt="imgbox"/></p>
+<p>這樣修改還沒結束，Lorem Picsum回應圖片時會以301轉址到圖片，但套件中沒有處理此狀況，直接生成下去會拿不到圖片，修改如下。</p>
 
-<h3 id="step-3">Step 3</h3>
+<pre><code class="language-php">&lt;?php
+    public static function image($dir = null, $width = 640, $height = 480, $category = null, $fullPath = true, $randomize = '', $word = null, $gray = false){
+        // 略
+            // use cURL
+            $fp = fopen($filepath, 'w');
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_FILE, $fp);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // 加入此段code即可
+            $success = curl_exec($ch) &amp;&amp; curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
+            fclose($fp);
+            curl_close($ch);
+        // 略
+    }
+?&gt;
+</code></pre>
 
-<p>這時我們有了Token就可以發送訊息，以下我以php做簡易示範</p>
+<p>這樣圖片就可以正常產生囉～</p>
 
+<h2 id="參考資料">參考資料</h2>
 
-  
-    
-  
-  
-    
-  
-  
-  
-
-
-<figure class="highlight php language-php">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-php"><code class="php">&lt;?php
-$headers = array(
-    &#39;Content-Type: multipart/form-data&#39;,
-    &#39;Authorization: Bearer 你的Token&#39;
-);
-$message = array(
-    &#39;message&#39; =&gt; &#39;Hello,Kira~&#39;
-);
-$ch = curl_init();
-curl_setopt($ch , CURLOPT_URL , &#34;https://notify-api.line.me/api/notify&#34;);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
-$result = curl_exec($ch);
-curl_close($ch);
-?&gt;</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-<p>回到我們的LINE就會看到剛發出的訊息</p>
-
-<p><img src="https://images2.imgbox.com/b9/0c/XsTkLUhY_o.jpg" alt="imgbox"/></p>
-
-<blockquote>
-<p>請注意，Bearer後面是有空格的</p>
-</blockquote>
-
-<p>LINE Notify還可以傳送圖片及基本貼圖，可自行詳閱<a href="https://notify-bot.line.me/doc/en/">API文件</a></p>
+<p><a href="https://github.com/fzaninotto/Faker/issues/2071">Lorempixel.com is down #2071</a></p>
               
             </div>
           </div>
@@ -329,7 +317,9 @@ curl_close($ch);
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">PHP</a>
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/php/">php</a>
+
+  <a class="tag tag--primary tag--small" href="https://kira5033.github.io/tags/laravel/">laravel</a>
 
                   </div>
                 
@@ -342,7 +332,7 @@ curl_close($ch);
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -350,7 +340,7 @@ curl_close($ch);
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Geth篇">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/" data-tooltip="SameSite Cookie 之踩坑過程">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -368,19 +358,19 @@ curl_close($ch);
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -428,7 +418,7 @@ curl_close($ch);
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/11/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-parity%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Parity篇">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -436,7 +426,7 @@ curl_close($ch);
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2019/06/centos-7.6-%E4%BB%A5%E5%A4%AA%E5%9D%8Aethereum%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE-geth%E7%AF%87/" data-tooltip="CentOS 7.6 以太坊Ethereum環境建置 - Geth篇">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://kira5033.github.io/2020/09/samesite-cookie-%E4%B9%8B%E8%B8%A9%E5%9D%91%E9%81%8E%E7%A8%8B/" data-tooltip="SameSite Cookie 之踩坑過程">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -454,19 +444,19 @@ curl_close($ch);
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2019/06/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://kira5033.github.io/2021/03/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -496,19 +486,19 @@ curl_close($ch);
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp-%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkira5033.github.io%2F2021%2F03%2F%25E8%25A7%25A3%25E6%25B1%25BAlaravel-faker%25E7%2594%259F%25E6%2588%2590%25E5%259C%2596%25E7%2589%2587%25E5%25A4%25B1%25E6%2595%2588%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp-%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fkira5033.github.io%2F2021%2F03%2F%25E8%25A7%25A3%25E6%25B1%25BAlaravel-faker%25E7%2594%259F%25E6%2588%2590%25E5%259C%2596%25E7%2589%2587%25E5%25A4%25B1%25E6%2595%2588%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2019%2F06%2Fphp-%25E7%25B0%25A1%25E6%2598%2593%25E4%25B8%25B2%25E6%258E%25A5line-notify%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fkira5033.github.io%2F2021%2F03%2F%25E8%25A7%25A3%25E6%25B1%25BAlaravel-faker%25E7%2594%259F%25E6%2588%2590%25E5%259C%2596%25E7%2589%2587%25E5%25A4%25B1%25E6%2595%2588%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -802,9 +792,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/kira5033.github.io\/2019\/06\/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/';
+          this.page.url = 'https:\/\/kira5033.github.io\/2021\/03\/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88\/';
           
-            this.page.identifier = '\/2019\/06\/php-%E7%B0%A1%E6%98%93%E4%B8%B2%E6%8E%A5line-notify\/'
+            this.page.identifier = '\/2021\/03\/%E8%A7%A3%E6%B1%BAlaravel-faker%E7%94%9F%E6%88%90%E5%9C%96%E7%89%87%E5%A4%B1%E6%95%88\/'
           
         };
         (function() {
