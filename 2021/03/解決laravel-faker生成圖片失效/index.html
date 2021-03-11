@@ -271,7 +271,7 @@ if (!doNotTrack) {
         $url = &quot;{$width}/{$height}/&quot;;
         
         if($randomize){
-            $url = &quot;seed/&quot; . $randomize . &quot;/&quot;;
+            $url = &quot;seed/&quot; . $randomize . &quot;/&quot; . $url;
         }
 
         // 灰階圖片則這樣修改
