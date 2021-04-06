@@ -74,7 +74,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
+    
     <link rel="stylesheet" href="https://kira5033.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+    
     
     
 
@@ -343,7 +347,16 @@ if($sessionId != '' &amp;&amp; session_id() != $sessionId){
 }
 </code></pre>
 
-<p>雖然有些第三方都會保留參數讓串接方可以放值進去，我是建議以 GET 方式回傳最好，因為我們不確定每家第三方在失敗回傳後都會丟回這些參數，但如果設定在回傳網址就一定收的到。</p>
+<p>雖然有些第三方都會保留參數讓串接方可以放值進去，我是建議以 GET 方式回傳最好，因為我們不確定每家第三方在失敗回傳後都會丟回這些參數，但如果設定在回傳網址就一定收的到。<br />
+<br><br>
+<HR></p>
+
+<h4 id="2021-04-06-更新">2021-04-06 更新</h4>
+
+<p>最近在iOS 12瀏覽器碰到一個問題，cookie會有異常導致登入判斷異常，後來廠商找到Chromium的文章有提到相容性問題，這個 samesite=none 設定在 MacOS 10.14 和
+iOS 12的瀏覽器都不相容，所以可以檢視自己的cookie議題，如果需要處理samesite就要注意裝置版本問題，在設定上可能會出現分水嶺。
+<br><br>
+原文連結：<a href='https://www.chromium.org/updates/same-site/incompatible-clients' target='_blank'>SameSite=None: Known Incompatible Clients</a></p>
 
 <h3 id="參考資料">參考資料</h3>
 
@@ -797,7 +810,8 @@ if($sessionId != '' &amp;&amp; session_id() != $sessionId){
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-zc7WDnCM3aom2EziyDIRAtQg1mVXLdILE09Bo+aE1xk0AM2c2cVLfSW9NrxE5tKTX44WBY0Z2HClZ05ur9vB6A==" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
@@ -818,18 +832,6 @@ function updateMinWidth() {
   var w3 = getComputedStyle(sidebar).getPropertyValue("left");
   main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
 }
-</script>
-
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
 </script>
 
 
