@@ -82,7 +82,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    
     <link rel="stylesheet" href="https://kira5033.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
@@ -264,10 +263,10 @@ if (!doNotTrack) {
 
 <h3 id="parity-one-line-binary-installer">Parity One-line Binary Installer</h3>
 
-<pre><code>bash &lt;(curl https://get.parity.io -L) -r stable
+<pre><code class="language-bash">bash &lt;(curl https://get.parity.io -L) -r stable
 </code></pre>
 
-<pre><code>yum -y install libudev-devel
+<pre><code class="language-bash">yum -y install libudev-devel
 yum -y group install &quot;Development Tools&quot;
 </code></pre>
 
@@ -275,7 +274,7 @@ yum -y group install &quot;Development Tools&quot;
 
 <h3 id="centos升級glibc至2-18">centos升級glibc至2.18</h3>
 
-<pre><code>wget http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
+<pre><code class="language-bash">wget http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
 
 tar -xzvf glibc-2.18.tar.gz
 cd glibc-2.18
@@ -283,7 +282,7 @@ cd glibc-2.18
 
 <h3 id="建立build資料夾-編譯">建立build資料夾 &amp; 編譯</h3>
 
-<pre><code>mkdir build
+<pre><code class="language-bash">mkdir build
 cd build
 
 ../configure --prefix=/usr
@@ -296,7 +295,7 @@ strings /lib64/libc.so.6 |grep GLIBC_
 
 <h3 id="升級-glibcxx-3-4-20-以上">升級 GLIBCXX_3.4.20 以上</h3>
 
-<pre><code>#確認版本是否存在 GLIBCXX_3.4.20 以上
+<pre><code class="language-bash">#確認版本是否存在 GLIBCXX_3.4.20 以上
 strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
 
 #找一下其他版本的 libstdc++.so.6
@@ -320,7 +319,7 @@ strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
 
 <h3 id="快速啟動parity">快速啟動Parity</h3>
 
-<pre><code>parity --allow-ips=public --max-peers=256 --max-pending-peers=256 --cache-size=30720 --no-serve-light --no-periodic-snapshot --no-secretstore --no-ipc --no-hardware-wallets --no-jsonrpc --no-ws --scale-verifiers
+<pre><code class="language-bash">parity --allow-ips=public --max-peers=256 --max-pending-peers=256 --cache-size=30720 --no-serve-light --no-periodic-snapshot --no-secretstore --no-ipc --no-hardware-wallets --no-jsonrpc --no-ws --scale-verifiers
 </code></pre>
 
 <p>但你也可以使用config的方式自訂啟動參數</p>
@@ -332,7 +331,7 @@ strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
 
 <h3 id="路徑及參數檔建置">路徑及參數檔建置</h3>
 
-<pre><code>mkdir /parity
+<pre><code class="language-bash">mkdir /parity
 mkdir /parity/config
 mkdir /parity/logs
 parity --config=&quot;/parity/config/config.toml&quot; 
@@ -340,7 +339,7 @@ parity --config=&quot;/parity/config/config.toml&quot;
 
 <h3 id="設定成為-daemon">設定成為 daemon</h3>
 
-<pre><code>sudo wget https://raw.githubusercontent.com/paritytech/parity-ethereum/master/scripts/parity.service -O /etc/systemd/system/parity.service
+<pre><code class="language-bash">sudo wget https://raw.githubusercontent.com/paritytech/parity-ethereum/master/scripts/parity.service -O /etc/systemd/system/parity.service
 sudo chmod +x /etc/systemd/system/parity.service
 sudo systemctl enable parity
 sudo systemctl start parity
@@ -348,7 +347,7 @@ sudo systemctl start parity
 
 <h3 id="要變更parity-service的設定目錄">要變更parity.service的設定目錄</h3>
 
-<pre><code>/usr/bin/parity --config /parity-lite/config/config-light.toml
+<pre><code class="language-bash">/usr/bin/parity --config /parity-lite/config/config-light.toml
 </code></pre>
 
 <p>daemon參考：<br />

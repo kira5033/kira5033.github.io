@@ -78,7 +78,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    
     <link rel="stylesheet" href="https://kira5033.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
@@ -275,7 +274,7 @@ readfile(&quot;{$file}&quot;);
 
 <p>既然是用header做檔案下載，那勢必要有引導頁面做這個工作，開頭說到想讓使用者下載也是有個原因，大家都知道下載檔案只要將檔案路徑放進連結，點擊時就可以下載</p>
 
-<pre><code class="language-html">&lt;a href='YourFilePath' target='_blank'&gt;Download&lt;/a&gt;
+<pre><code class="language-markup">&lt;a href='YourFilePath' target='_blank'&gt;Download&lt;/a&gt;
 </code></pre>
 
 <p>但以安全性的角度來看這件事情就非常不OK，因為你的檔案路徑會直接外洩，如果你的檔案命名是有規則性的話，很容易被有心的使用者去猜到，或者在路徑存取權限沒設定好，一進入路徑就全部看光光了</p>

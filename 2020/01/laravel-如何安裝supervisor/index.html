@@ -74,7 +74,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    
     <link rel="stylesheet" href="https://kira5033.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
@@ -260,18 +259,18 @@ if (!doNotTrack) {
 
 <p>安裝supervisor</p>
 
-<pre><code>sudo apt install supervisor
+<pre><code class="language-bash">sudo apt install supervisor
 </code></pre>
 
 <p>安裝完成後，會在etc下產生supervisor的資料夾</p>
 
-<pre><code>root@linkira-virtual-machine:/etc# ls -la | grep supervisor
+<pre><code class="language-bash">root@linkira-virtual-machine:/etc# ls -la | grep supervisor
 drwxr-xr-x   3 root root    4096  1月 14 11:38 supervisor
 </code></pre>
 
 <p>而進入後打開supervisor.conf內容是這樣</p>
 
-<pre><code>root@linkira-virtual-machine:/etc/supervisor# cat supervisord.conf
+<pre><code class="language-ini">root@linkira-virtual-machine:/etc/supervisor# cat supervisord.conf
 ; supervisor config file
 
 [unix_http_server]
@@ -312,7 +311,7 @@ Ubuntu - conf</p>
 
 <p>我們把一段簡單的排程工作寫進conf.d</p>
 
-<pre><code>[program:test] # 為此排程命名為test，啟動及關閉排程時所認定的名稱
+<pre><code class="language-ini">[program:test] # 為此排程命名為test，啟動及關閉排程時所認定的名稱
 command=bash -i -c &quot;echo $(date) &amp;&amp; sleep 5&quot; # 撰寫執行指令
 autostart=true # 自動執行
 autorestart=true # 中斷時自動重啟
@@ -329,7 +328,7 @@ logfile_maxbytes=4294967296 # 設定log檔大小，系統將會自動rotated
 
 <p>我們只要給他reload，排程就會開始執行</p>
 
-<pre><code>root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl reload
+<pre><code class="language-bash">root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl reload
 Restarted supervisord
 
 root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl status
@@ -338,7 +337,7 @@ test                             RUNNING   pid 7385, uptime 0:00:02
 
 <p>我們來檢查一下log看看執行狀況</p>
 
-<pre><code>root@linkira-virtual-machine:/etc/supervisor/conf.d# tail -f /var/log/test.out.log
+<pre><code class="language-bash">root@linkira-virtual-machine:/etc/supervisor/conf.d# tail -f /var/log/test.out.log
 二 1月 14 12:06:46 CST 2020
 二 1月 14 12:06:53 CST 2020
 二 1月 14 12:06:59 CST 2020
@@ -346,12 +345,12 @@ test                             RUNNING   pid 7385, uptime 0:00:02
 
 <p>假設我要變更輸出內容在前面增加一段文字</p>
 
-<pre><code>command=bash -i -c &quot;echo Hello Log $(date) &amp;&amp; sleep 5&quot;
+<pre><code class="language-bash">command=bash -i -c &quot;echo Hello Log $(date) &amp;&amp; sleep 5&quot;
 </code></pre>
 
 <p>然而supervisor需要重新讀取conf，才會產生後續追加的文字</p>
 
-<pre><code>root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl reread
+<pre><code class="language-bash">root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl reread
 test: changed
 
 root@linkira-virtual-machine:/etc/supervisor/conf.d# supervisorctl update
@@ -367,7 +366,7 @@ Hello Log 二 1月 14 12:24:59 CST 2020
 
 <p>最後來個指令總結</p>
 
-<pre><code>supervisorctl reload # 重啟整個supervisor，若有設定自動執行的排程將會啟動
+<pre><code class="language-bash">supervisorctl reload # 重啟整個supervisor，若有設定自動執行的排程將會啟動
 
 supervisorctl reread  # 檢查子排程是否有變更
 supervisorctl update # 自動更新至最新排程設定
@@ -388,32 +387,32 @@ supervisorctl restart {name} # 重啟指定排程
 
 <p>首先一樣先安裝supervisor</p>
 
-<pre><code>yum -y install epel-release # 新主機的話請先安裝這包
+<pre><code class="language-bash">yum -y install epel-release # 新主機的話請先安裝這包
 
 yum -y install supervisor 
 </code></pre>
 
 <p>安裝後到etc檢查一下目錄，會發現跟ubuntu的稍微不太一樣</p>
 
-<pre><code>[root@localhost etc]# ls -la | grep supervisord
+<pre><code class="language-bash">[root@localhost etc]# ls -la | grep supervisord
 -rw-r--r--.  1 root root     7953  7月 29  2017 supervisord.conf
 drwxr-xr-x.  2 root root       22  1月 14 14:33 supervisord.d
 </code></pre>
 
 <p>這次我們也檢查看看conf檔中include的內容</p>
 
-<pre><code>[include]
+<pre><code class="language-ini">[include]
 files = supervisord.d/*.ini # 在ubuntu篇提到的，兩個系統的副檔名是不一樣的
 </code></pre>
 
 <p>到這裡可能大家都熟悉怎麼後續操作了，當排程檔案設定完後，接著要啟動supervisor時，卻報出了錯誤</p>
 
-<pre><code>error: &lt;class 'socket.error'&gt;, [Errno 2] No such file or directory: file: /usr/lib64/python2.7/socket.py line: 224
+<pre><code class="language-log">error: &lt;class 'socket.error'&gt;, [Errno 2] No such file or directory: file: /usr/lib64/python2.7/socket.py line: 224
 </code></pre>
 
 <p>在CentOS時，我們要多做一個指定conf檔案的動作，這樣才可以正常執行</p>
 
-<pre><code>supervisord -c /etc/supervisord.conf # 請以root執行，並設定正確的conf路徑
+<pre><code class="language-bash">supervisord -c /etc/supervisord.conf # 請以root執行，並設定正確的conf路徑
 </code></pre>
 
 <p>剩下操作都跟ubuntu一樣了，這樣就大功告成囉～</p>

@@ -74,7 +74,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    
     <link rel="stylesheet" href="https://kira5033.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
@@ -269,49 +268,22 @@ if (!doNotTrack) {
 
 <p>這時我們有了Token就可以發送訊息，以下我以php做簡易示範</p>
 
-
-  
-    
-  
-  
-    
-  
-  
-  
-
-
-<figure class="highlight php language-php">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-php"><code class="php">&lt;?php
+<pre><code class="language-php">&lt;?php
 $headers = array(
-    &#39;Content-Type: multipart/form-data&#39;,
-    &#39;Authorization: Bearer 你的Token&#39;
+    'Content-Type: multipart/form-data',
+    'Authorization: Bearer 你的Token'
 );
 $message = array(
-    &#39;message&#39; =&gt; &#39;Hello,Kira~&#39;
+    'message' =&gt; 'Hello,Kira~'
 );
 $ch = curl_init();
-curl_setopt($ch , CURLOPT_URL , &#34;https://notify-api.line.me/api/notify&#34;);
+curl_setopt($ch , CURLOPT_URL , &quot;https://notify-api.line.me/api/notify&quot;);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
 $result = curl_exec($ch);
 curl_close($ch);
-?&gt;</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
+</code></pre>
 
 <p>回到我們的LINE就會看到剛發出的訊息</p>
 

@@ -74,7 +74,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    
     <link rel="stylesheet" href="https://kira5033.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
@@ -256,12 +255,12 @@ if (!doNotTrack) {
 
 <p>剛設置好CentOS後，先更新git wget bzip2 vim gcc-c++ ntp epel-release nodejs</p>
 
-<pre><code>$ yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs -y
+<pre><code class="language-bash">$ yum update -y &amp;&amp; yum install git  wget bzip2 vim gcc-c++ ntp epel-release nodejs -y
 </code></pre>
 
 <h3 id="安裝go-ethereum">安裝go-ethereum</h3>
 
-<pre><code># 在這裡要先安裝Golang，待會需要編譯用
+<pre><code class="language-bash"># 在這裡要先安裝Golang，待會需要編譯用
 $ wget https://studygolang.com/dl/golang/go1.11.5.linux-amd64.tar.gz
 
 # 解壓縮golang  
@@ -294,26 +293,24 @@ $ source /etc/profile
 
 <p><a href="https://cmake.org/download/">下載cmake最新版本</a></p>
 
-<pre><code>$ cd &amp;&amp; wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
+<pre><code class="language-bash">$ cd &amp;&amp; wget https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
 </code></pre>
 
 <h3 id="解壓並編譯並安裝">解壓並編譯並安裝</h3>
 
-<pre><code>$ tar -xzvf cmake-3.14.5.tar.gz
+<pre><code class="language-bash">$ tar -xzvf cmake-3.14.5.tar.gz
 $ cd cmaker-3.14.5
 $ ./bootstrap --prefix=/usr/local
 $ make &amp;&amp; make install
-</code></pre>
 
-<h3 id="啓動網路時間同步">啓動網路時間同步</h3>
+### 啓動網路時間同步
 
-<pre><code>$ systemctl enable ntpd
+$ systemctl enable ntpd
 $ systemctl start ntpd
-</code></pre>
 
-<h3 id="開放防火牆port">開放防火牆port</h3>
+### 開放防火牆port 
 
-<pre><code>$ firewall-cmd --zone=public --add-port=8545/tcp --permanent
+$ firewall-cmd --zone=public --add-port=8545/tcp --permanent
 $ firewall-cmd --zone=public --add-port=30303/tcp --permanent
 $ firewall-cmd --reload
 </code></pre>
@@ -328,22 +325,22 @@ RPCapi - 8545<br />
 
 <p>在go-ethereum/build/bin目錄下建立創世區塊文件init.json檔，內容如下</p>
 
-<pre><code>{
-  &quot;nonce&quot;: &quot;0x0000000000000042&quot;,
-  &quot;timestamp&quot;: &quot;0x00&quot;,
-  &quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
-  &quot;extraData&quot;: &quot;0x00&quot;,
-  &quot;gasLimit&quot;: &quot;0x80000000&quot;,
-  &quot;difficulty&quot;: &quot;0x400&quot;,
-  &quot;mixhash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
-  &quot;coinbase&quot;: &quot;0x2D356ee3F5b8718d8690AFCD31Fe2CB5E602677e&quot;,
-  &quot;alloc&quot;: {},
-  &quot;config&quot;: {
-    &quot;chainId&quot;: 15,
-    &quot;homesteadBlock&quot;: 0,
-    &quot;eip155Block&quot;: 0,
-    &quot;eip158Block&quot;: 0
-  }
+<pre><code class="language-json">{
+	&quot;nonce&quot;: &quot;0x0000000000000042&quot;,
+	&quot;timestamp&quot;: &quot;0x00&quot;,
+	&quot;parentHash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+	&quot;extraData&quot;: &quot;0x00&quot;,
+	&quot;gasLimit&quot;: &quot;0x80000000&quot;,
+	&quot;difficulty&quot;: &quot;0x400&quot;,
+	&quot;mixhash&quot;: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,
+	&quot;coinbase&quot;: &quot;0x2D356ee3F5b8718d8690AFCD31Fe2CB5E602677e&quot;,
+	&quot;alloc&quot;: {},
+	&quot;config&quot;: {
+		&quot;chainId&quot;: 15,
+		&quot;homesteadBlock&quot;: 0,
+		&quot;eip155Block&quot;: 0,
+		&quot;eip158Block&quot;: 0
+	}
 }
 </code></pre>
 
@@ -351,7 +348,7 @@ RPCapi - 8545<br />
 
 <p>請在ethereum/build/bin下操作</p>
 
-<pre><code># 請注意，這是自行架設的私有鏈才需要初始化
+<pre><code class="language-bash"># 請注意，這是自行架設的私有鏈才需要初始化
 # 公有鏈不需操作此步驟
 $ geth --datadir &quot;/data/eth/chain&quot; init init.json
 </code></pre>
@@ -362,7 +359,7 @@ $ geth --datadir &quot;/data/eth/chain&quot; init init.json
 
 <h3 id="以太坊啟動">以太坊啟動</h3>
 
-<pre><code>$ geth --rpc --rpcaddr &quot;0.0.0.0&quot; --rpcport 8545 --rpccorsdomain &quot;*&quot; --datadir &quot;/data/eth/chain/&quot; --port &quot;30303&quot; --rpcapi &quot;db,eth,net,web3,personal&quot; --networkid 100000 --allow-insecure-unlock console 
+<pre><code class="language-bash">$ geth --rpc --rpcaddr &quot;0.0.0.0&quot; --rpcport 8545 --rpccorsdomain &quot;*&quot; --datadir &quot;/data/eth/chain/&quot; --port &quot;30303&quot; --rpcapi &quot;db,eth,net,web3,personal&quot; --networkid 100000 --allow-insecure-unlock console 
 </code></pre>
 
 <p>如果有看到Welcome to the Geth JavaScript console!的字樣，私有鏈就算架設完成囉～</p>
@@ -371,7 +368,7 @@ $ geth --datadir &quot;/data/eth/chain&quot; init init.json
 
 <p>基本上啟動以太坊一定是Server端啟用，所以如果在其他電腦上也想進入Console畫面，就要Remote進去</p>
 
-<pre><code># 本機連接節點
+<pre><code class="language-bash"># 本機連接節點
 $ geth attach http://localhost:8545
 
 # 遠端連接節點
